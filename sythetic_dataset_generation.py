@@ -1,13 +1,25 @@
-#'''Evaluate the overall RAG assistant performance on a set of test queries.'''
+'''Evaluate the overall RAG assistant performance on a set of test queries.'''
 import os
 
-from llama_index.core.evaluation import generate_question_context_pairs
+from llama_index.core.evaluation import generate_question_context_pairs, RetrieverEvaluator
 from llama_index.llms.groq import Groq
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 from llama_index.core.node_parser import SentenceSplitter
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.vector_stores.chroma import ChromaVectorStore
+
 from dotenv import load_dotenv
 
 load_dotenv()
+
+async def test_retrieval(retriever):
+    metrics = ["precision", "recall", "mrr", "hit_rate"]
+    retriever_evaluator = RetrieverEvaluator.from_metric_names(
+        metrics,
+        retriever=retriever,
+    )
+    eval_results = await retriever_evaluator.aevaluate_dataset(testset)
+    return eval_results
 
 # Load documents
 documents = SimpleDirectoryReader("data/").load_data()
@@ -16,7 +28,6 @@ parser = SentenceSplitter(
     chunk_size=800,
     chunk_overlap=100
 )
-
 
 # Split data in nodes
 nodes = parser.get_nodes_from_documents(documents)
@@ -28,8 +39,7 @@ llm = Groq(model="moonshotai/kimi-k2-instruct", api_key=groq_api_key)
 
 testset = generate_question_context_pairs(nodes=nodes, 
                                           llm=llm,
-                                          num_questions_per_chunk=2)
+                                          num_questions_per_chunk=3)
 
 testset.save_json("data/eval_rag_dataset.json")
-
-print(testset)
+print(f"Generated question-context pairs for evaluation.")

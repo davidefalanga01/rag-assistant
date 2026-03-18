@@ -6,7 +6,6 @@ from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 
 from rag import create_vector_db
 
-
 async def test_retrieval(retriever):
     metrics = ["precision", "recall", "mrr", "hit_rate"]
     retriever_evaluator = RetrieverEvaluator.from_metric_names(
@@ -21,10 +20,31 @@ if __name__ == "__main__":
     retriever = index.as_retriever(similarity_top_k=2)
 
     qa_dataset = EmbeddingQAFinetuneDataset.from_json("data/eval_rag_dataset.json")
-    print("Type:", type(qa_dataset))
-    print("Queries:", next(iter(qa_dataset.queries.items())))
-    print("Corpus:", next(iter(qa_dataset.corpus.items())))
-    print("Relevant docs:", next(iter(qa_dataset.relevant_docs.items())))
-    print("Number of queries:", len(qa_dataset.queries))
-    #eval_results = asyncio.run(test_retrieval(retriever))
-    #print(eval_results)
+    
+    eval_results = asyncio.run(test_retrieval(retriever))
+    print(eval_results)
+
+# # Define the embedding model
+# embed_model = HuggingFaceEmbedding(
+#     model_name="sentence-transformers/all-MiniLM-L6-v2"
+# )
+
+# chroma_client = chromadb.EphemeralClient()
+# # chroma_client = chromadb.PersistentClient(path="./chroma_db")
+# chroma_collection = chroma_client.create_collection("quickstart")
+
+# # Build the Chroma vector database
+# vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+
+# index = VectorStoreIndex(
+#     nodes,
+#     embed_model=embed_model,
+#     vector_store=vector_store
+# )
+
+
+# retriever = index.as_retriever(similarity_top_k=1)
+
+
+# eval_results = asyncio.run(test_retrieval(retriever))
+# print(eval_results)
