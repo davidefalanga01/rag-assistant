@@ -24,24 +24,6 @@ if __name__ == "__main__":
     eval_results = asyncio.run(test_retrieval(retriever))
     print(eval_results)
 
-# # Define the embedding model
-# embed_model = HuggingFaceEmbedding(
-#     model_name="sentence-transformers/all-MiniLM-L6-v2"
-# )
-
-# chroma_client = chromadb.EphemeralClient()
-# # chroma_client = chromadb.PersistentClient(path="./chroma_db")
-# chroma_collection = chroma_client.create_collection("quickstart")
-
-# # Build the Chroma vector database
-# vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
-
-# index = VectorStoreIndex(
-#     nodes,
-#     embed_model=embed_model,
-#     vector_store=vector_store
-# )
-
 
 # retriever = index.as_retriever(similarity_top_k=1)
 

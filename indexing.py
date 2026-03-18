@@ -3,44 +3,59 @@ from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 import chromadb
+import os
 
-def create_vector_db():
-    # Load documents
-    documents = SimpleDirectoryReader("data/").load_data()
+from vector_database import create_vector_db, load_vector_db
 
-    parser = SentenceSplitter(
-        chunk_size=800,
-        chunk_overlap=100
-    )
 
-    # Split data in nodes
-    nodes = parser.get_nodes_from_documents(documents)
+def test_vector_db():
 
-    # Define the embedding model
-    embed_model = HuggingFaceEmbedding(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    DB_PATH = "./chroma_db"
+    COLLECTION_NAME = "rag_collection"
+    DATA_DIR = "data/"
 
-    chroma_client = chromadb.EphemeralClient()
-    # chroma_client = chromadb.PersistentClient(path="./chroma_db")
-    chroma_collection = chroma_client.create_collection("quickstart")
+    # --- Test 1: create_vector_db ---
+    print("=== Test 1: Creating vector DB ===")
+    documents = SimpleDirectoryReader(DATA_DIR, required_exts=[".pdf"]).load_data()
+    assert len(documents) > 0, "No documents loaded."
+    print(f"Loaded {len(documents)} documents.")
 
-    # Build the Chroma vector database
-    vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+    index = create_vector_db(documents=documents)
+    assert index is not None, "Index was not created."
+    print("Index created.")
 
-    index = VectorStoreIndex(
-        nodes,
-        embed_model=embed_model,
-        vector_store=vector_store
-    )
-    return index
+    # --- Test 2: Check embeddings are persisted in Chroma ---
+    print("\n=== Test 2: Checking Chroma collection ===")
+    client = chromadb.PersistentClient(path=DB_PATH)
+    collection = client.get_collection(COLLECTION_NAME)
+    count = collection.count()
+    assert count > 0, "Collection is empty — embeddings were not persisted."
+    print(f"Collection contains {count} embedded nodes. ✓")
 
+    # --- Test 3: Check embeddings are actually stored (not None) ---
+    print("\n=== Test 3: Checking embedding vectors ===")
+    result = collection.get(limit=1, include=["embeddings"])
+    embedding = result["embeddings"][0]
+    assert embedding is not None, "Embedding is None."
+    assert len(embedding) > 0, "Embedding vector is empty."
+    print(f"Sample embedding dim: {len(embedding)} ✓")
+
+    # --- Test 4: load_vector_db ---
+    print("\n=== Test 4: Loading vector DB ===")
+    loaded_index = load_vector_db()
+    assert loaded_index is not None, "Loaded index is None."
+    print("Index loaded successfully. ✓")
+
+    # --- Test 5: Query sanity check ---
+    print("\n=== Test 5: Query sanity check ===")
+    query_engine = loaded_index.as_retriever()
+    response = query_engine.retrieve("What is this document about?")
+    assert response is not None, "Query returned None."
+    assert len(response) > 0, "Query returned empty response."
+    print(f"Query response: {str(response[0])[:200]}... ✓")
+
+    print("\n All tests passed.")
 
 
 if __name__ == "__main__":
-    index = create_vector_db()
-
-    # Test the retriever part
-    retriever = index.as_retriever(similarity_top_k=5)
-    nodes = retriever.retrieve("Who is the CEO of APPLE? ")
-    print(len(nodes))
+    test_vector_db()
