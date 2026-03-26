@@ -10,36 +10,50 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 
 from dotenv import load_dotenv
 
+from generation import generation_model
+from vector_database import load_raw_nodes
+
 load_dotenv()
 
-async def test_retrieval(retriever):
-    metrics = ["precision", "recall", "mrr", "hit_rate"]
-    retriever_evaluator = RetrieverEvaluator.from_metric_names(
-        metrics,
-        retriever=retriever,
+def generate_dataset(
+    nodes,
+    llm,
+    num_questions_per_chunk: int = 2,
+):
+    
+    print(
+        f"Generating {num_questions_per_chunk} question(s) per chunk "
+        f"across {len(nodes)} nodes …"
     )
-    eval_results = await retriever_evaluator.aevaluate_dataset(testset)
-    return eval_results
+    dataset = generate_question_context_pairs(
+        nodes,
+        llm=llm,
+        num_questions_per_chunk=num_questions_per_chunk,
+    )
+    print(f"Generated {len(dataset.queries)} Q&A pairs.")
+    return dataset
 
-# Load documents
-documents = SimpleDirectoryReader("data/").load_data()
 
-parser = SentenceSplitter(
-    chunk_size=800,
-    chunk_overlap=100
-)
-
-# Split data in nodes
-nodes = parser.get_nodes_from_documents(documents)
-print(f"Loaded {len(nodes)} nodes from documents.")
-
-groq_api_key = os.getenv("GROQ_API_KEY")
-
-llm = Groq(model="moonshotai/kimi-k2-instruct", api_key=groq_api_key)
-
-testset = generate_question_context_pairs(nodes=nodes, 
-                                          llm=llm,
-                                          num_questions_per_chunk=3)
-
-testset.save_json("data/eval_rag_dataset.json")
-print(f"Generated question-context pairs for evaluation.")
+def main():
+    llm = generation_model()
+ 
+    # 1. Load nodes from Chroma
+    nodes = load_raw_nodes(
+        db_path="./chroma_db",
+        collection_name="rag_collection",
+    )
+ 
+    # 2. Generate Q&A pairs
+    dataset = generate_dataset(
+        nodes=nodes,
+        llm=llm,
+        num_questions_per_chunk=2,
+    )
+ 
+    # 3. Persist
+    dataset.save_json("data/eval_rag_dataset.json")
+    print(f"Generated question-context pairs for evaluation.")
+ 
+ 
+if __name__ == "__main__":
+    main()

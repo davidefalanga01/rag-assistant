@@ -3,74 +3,43 @@
         "0c536442-b095-49d4-affc-cd6e1d49b1c5": "According to the Form 10-K header, what is the exact fiscal-year end date for which Apple Inc. filed this annual report?",
         "19150ec2-8077-4c63-9eaf-beff71c7b010": "List every debt-security description (maturity year and coupon rate) that Apple Inc. shows as registered under Section 12(b) of the Securities Exchange Act in this filing.",
         "50600a09-d592-4286-b6cb-cb9d386353e6": "According to the disclosure, what is the Registrant\u2019s filing status among the SEC categories provided (large accelerated filer, accelerated filer, non-accelerated filer, smaller reporting company, or emerging growth company), and did it include the required Section 404(b) attestation report from its independent auditor?",
-        "c4291318-ce0d-4a7d-bf7a-64ea3ff03736": "Using only the figures stated in the document, calculate the approximate market capitalization per outstanding share of the Registrant\u2019s common stock as of March 29, 2024, and state how many shares were issued and outstanding as of October 18, 2024.",
         "7c2ff614-c835-4bc7-9d14-a63111dc6a18": "According to the Form 10-K table of contents, under which item and page would a student locate Apple\u2019s cybersecurity disclosures for fiscal-year 2024?",
-        "6f356852-f6ac-4e59-8fe9-30ac90d7af0b": "The table of contents lists a reserved Item 6 in Part II; what is the very next item number and page that immediately follows this reserved entry?",
-        "8ed69006-28f2-46a3-a06d-03185c337a10": "According to the Form 10-K excerpt, which specific operating systems does Apple list for its iPhone, Mac, iPad, Apple Watch, Apple Vision Pro, and Apple TV product families?",
         "3d7ceca8-b369-4321-b1fc-24a6deab87d0": "In the excerpt, Apple explicitly labels certain statements in the Form 10-K as \u201cforward-looking.\u201d Name two linguistic indicators (single words or short phrases) that the document itself says can be used to recognize these forward-looking statements.",
         "f4797921-19a0-4542-800d-5fbe32ec6055": "According to the document, which four specific wireless headphone product lines does the Company offer?",
         "17fb4236-9edb-482a-a9dd-3669d0493d95": "The document states that Apple Vision Pro\u2122 is the Company\u2019s first spatial computer; what operating system does it run on?",
         "1e740152-8235-4fb1-b7b6-8c0021464b2c": "Which two Apple subscription-based digital content services are explicitly mentioned in the document as offering exclusive original content and live sports, and as providing a personalized fitness experience, respectively?",
-        "15112b77-3583-4872-b102-84c549edf402": "According to the 2024 data provided, what percentage of the Company\u2019s total net sales was generated through indirect distribution channels, and how does this compare to the percentage generated through direct channels?",
-        "8bb697ae-8bb5-4977-b609-52f3dc29390d": "Question 1 (Supply-Chain & Risk Focus)",
-        "1b99cf89-bcd6-4e38-8a30-571cce206e3e": "According to the passage, identify two specific conditions that could jeopardize the continued availability\u2014at acceptable prices or at all\u2014of the custom components the Company relies on for its new products.",
         "7c6758d8-b0ec-473f-ab32-7e0ba3f7d077": "According to the passage, what does the Company identify as the primary factor on which it actually relies for competitive success, even while acknowledging the importance of its intellectual-property portfolio?",
         "fb3c12e7-57ff-4de6-9f98-83888cad495c": "The passage states that the Company\u2019s products and services often incorporate third-party intellectual property.",
-        "71b78601-e603-4a28-a89c-b85e9911db1b": "Question 1 \u2013 Business Seasonality",
-        "eb547baf-00c3-4993-a545-33509a422a1e": "Which fiscal quarter does the Company historically report its highest net sales, and what seasonal factor is cited as a primary reason for this spike?",
         "205142e2-ccde-414f-8097-b475434fa8b8": "According to the excerpt, where can investors access Apple\u2019s SEC filings free of charge, and why does the document state that the information on the referenced websites is not considered \u201cincorporated by reference\u201d into the Form 10-K?",
-        "febf908e-0087-434a-81ac-341f432f86dd": "The document lists several macro-economic conditions that could negatively affect Apple\u2019s business. Name two of these conditions and explain how they might simultaneously impact both consumer demand for Apple\u2019s products and the financial stability of Apple\u2019s international suppliers or channel partners.",
-        "7ccc031e-db6e-4c46-ad05-4a997e14fed3": "According to the passage, identify three distinct types of third-party partners (other than suppliers) that could face financial instability when global or regional economic conditions deteriorate.",
         "c975003f-eef9-488c-8fac-022cb75fe02f": "The text lists several financial risks that Apple itself might experience during adverse economic periods. Name two of these risks that relate specifically to the fair value or liquidity of Apple\u2019s own financial instruments.",
         "203c260e-4958-492b-867f-3d2e385b1ff3": "According to the passage, which six Asian locations are named as the primary sites where the Company\u2019s outsourcing partners perform substantially all of its manufacturing?",
-        "4b979932-c4a0-4aab-8abc-f0b10ce3f7fd": "The text states that restrictive trade measures can force the Company to take several specific actions. Name any three of those actions mentioned in the passage.",
         "5057f0c4-1cd7-470e-984a-170d36c5c5d9": "According to the passage, why could a disruption at a single-source or limited-source supplier be especially damaging to Apple\u2019s business recovery after an industrial accident or public-health crisis?",
-        "50395312-4d64-4d17-90ea-908a0097956e": "The text states that Apple maintains insurance for certain losses. Name two categories of negative consequences described in the passage that the company explicitly acknowledges its insurance might not fully cover.",
-        "fb78cee2-f8c6-4b2b-906c-63e753a13526": "According to the passage, which two factors\u2014both driven by competitors\u2014combine to create the greatest downward pressure on the Company\u2019s gross margins in its global markets?",
-        "9c52cbb1-45cb-49d8-bc97-79317054c3ea": "The Company designs and develops \u201cnearly the entire solution\u201d for its products. Name one specific risk mentioned in the text that arises directly from this integrated approach.",
         "51372d24-9f8a-4422-bbfd-1af2c71076da": "According to the passage, which four specific factors determine whether a new product or service introduction will succeed?",
-        "c66c71a0-df9b-4f9f-bf8e-e1f8122cb6cc": "The document states that new offerings may \u201cproduce lower revenues and lower profit margins.\u201d Identify two other distinct risks mentioned in the same paragraph that could materially harm the Company\u2019s business when launching new products or services.",
-        "ecf384b6-2278-40ba-9917-d8ca08568e7e": "Question 1",
         "ea9c6389-eac8-426e-8308-e3768ef4d2bb": "According to the passage, identify two distinct risks that arise from the Company\u2019s reliance on single-source outsourcing partners for both component supply and final assembly, and explain how each risk could directly disrupt the Company\u2019s operations.",
         "a8736557-e8fe-4963-b988-3fddcaa46c71": "According to the passage, which two supplier-side factors (other than simple shortages) can directly limit Apple\u2019s ability to secure adequate component quantities on commercially reasonable terms?",
-        "3a6913c1-88d9-4df7-8966-31e933f6b378": "The text states that Apple\u2019s new products frequently depend on single-source custom components.",
-        "3cc3d2b1-5078-4e6c-a61e-8da324e0c7f4": "According to the passage, which three categories of consequences (beginning with the letter \u201cR\u201d) can design or manufacturing defects trigger for the Company beyond direct financial costs?",
-        "f21e818d-576d-4624-a28e-c89090e2209f": "The Company may be forced to record write-downs on inventory and other assets when two specific valuation tests are failed. Name both tests and state the maximum forecast horizon (in days) mentioned for the Company\u2019s manufacturing purchase obligations.",
         "ab0752c2-76d2-4d74-9240-02de0b9d3589": "According to the passage, what is the maximum time horizon that Apple\u2019s manufacturing purchase obligations typically cover, and what specific risk does the Company acknowledge it faces if its forecasts for component requirements prove incorrect?",
         "1d4364cc-4e59-4867-af8a-a52dfc4d629f": "The passage states that Apple\u2019s products and services may unknowingly infringe existing third-party patents. Identify two potential consequences for Apple if it is unable to secure the necessary intellectual-property licenses on commercially reasonable terms.",
         "a703a715-62f8-4f31-96f6-78ac5f1ed0cc": "According to the passage, which three factors do third-party developers most commonly weigh when deciding whether to build or update software for the Company\u2019s platforms rather than for competing ecosystems such as Android, Windows, PlayStation, Nintendo, or Xbox?",
-        "d2ab57a6-65f7-48d1-8481-706e9485e05c": "The Company has recently altered its App Store policies in two major jurisdictions\u2014name the specific jurisdiction-pair and, for each, cite one concrete change (either in fee structure, distribution method, or developer-consumer communication rules) that the passage explicitly mentions.",
         "020779e2-9637-43c2-a800-21c4dd991104": "According to the passage, what are two specific ways third-party content providers can hinder the Company\u2019s ability to license or distribute their digital content?",
         "fdf9bbd1-ccab-45df-a508-237a5c6bd79d": "The Company incurs significant costs when producing its own digital content. Identify one primary factor cited in the text that drives these high production costs.",
-        "9e24ff05-6e23-41c9-a49d-a7ac54b88af3": "According to the passage, which two groups of external partners does the Company rely on to distribute its products and services, and what specific risk does the passage highlight regarding the financial health of these partners?",
         "a45e0dd2-faa0-4195-b425-b1d0ed3405ef": "The passage states that the Company\u2019s distinctive and inclusive culture is a \u201csignificant driver of its success.\u201d Identify one consequence the Company could face if it fails to nurture this culture, as explicitly mentioned in the text.",
         "a98081de-0f37-4dba-a269-78d117777279": "According to the passage, what are two specific ways in which confidential information can be compromised even after Apple has implemented security measures?",
-        "1cd97937-4f6c-4ceb-9f82-229d9d4b2efa": "The passage states that Apple\u2019s reliance on global suppliers introduces additional cyber-risk. Identify one consequence mentioned in the text that could result from a ransomware or other malicious attack on these suppliers.",
         "0ea1e8ae-29a7-4079-af9b-a0a7111fdafe": "According to the passage, which specific factors make the Company a relatively more attractive target for malicious cyber-attacks compared with other firms?",
-        "68c5d571-b43c-4df2-844e-d5b560e9fc37": "Beyond the risk of financial loss, identify two distinct ways\u2014mentioned in the text\u2014in which a significant investment or acquisition that fails could materially harm the Company.",
-        "f742652d-905e-4c06-9d60-f47112709f03": "According to the passage, which single type of event involving the Company\u2019s \u201cnew ventures\u201d is explicitly stated as capable of causing a material adverse effect on the business, reputation, results of operations, and financial condition?",
         "cea02aa9-105a-4180-a314-283c24c6979a": "The text lists several specific cost-management challenges faced in the Company\u2019s retail operations. Identify any two of these cost-related risks that the Company must manage with respect to its retail stores.",
         "1108e468-c7c1-42de-b856-64086bc3aa96": "According to the passage, what are two specific ways in which settling litigation or resolving government investigations could negatively affect the Company beyond the direct monetary cost?",
-        "85e9651d-0ea0-4715-a88f-0e031067fd1f": "The document states that the Company\u2019s insurance coverage \u201cmay be insufficient to cover all losses or all types of claims.\u201d Identify one category of risk mentioned in the passage for which the Company does not explicitly state it carries any insurance.",
         "0adf0c44-b9cc-4d6f-a6b1-33c273472a08": "According to the passage, identify two distinct ways that newly enacted or amended laws and regulations can negatively affect the Company\u2019s ability to market or design its products and services.",
         "4a15123f-ce74-4fd1-8726-5810675bf196": "The passage states that the Company\u2019s insurance coverage may be insufficient in certain situations. Explain in your own words why this limitation\u2014combined with the regulatory compliance risks described\u2014could materially impact the Company\u2019s financial condition.",
         "43cd1078-1acc-4953-8dac-95837734ae47": "According to the passage, which two categories of risk\u2014each capable of causing material adverse effects with little or no advance notice\u2014are specifically highlighted as confronting the Company?",
-        "b3f2613b-9e78-4ce0-8a0c-de2f7db0c349": "Identify three distinct types of business changes the Company has already implemented (or expects to implement) in response to regulatory or legal pressures, as described in the context information.",
         "caa4bc7d-92ac-4142-af59-2c22bf49b92c": "According to the passage, what specific risks does the Company still face even after implementing EU-focused changes intended to mitigate privacy and security concerns raised by the DMA?",
         "e7c566e5-270a-44ca-ad63-4dbbb7e3ae4c": "Identify two distinct types of antitrust-related actions mentioned in the text that could, individually or collectively, materially harm the Company\u2019s business, results of operations, or financial condition.",
         "d8a4c853-c05c-444a-abcd-159742491f18": "According to the passage, identify two distinct categories of sensitive data that carry additional privacy, security, and breach-notification obligations beyond general personal information, and briefly state one potential consequence the Company faces if it mishandles either category.",
         "b4267f69-e697-486c-9fb6-489c0de9e842": "Explain how non-compliance with payment-card industry data-security standards can materially affect the Company beyond direct fines or investigatory expenses; include at least one operational or financial impact mentioned in the text.",
         "a78854d1-a787-49d8-9146-ab31859f8e19": "According to the passage, identify at least four distinct factors (other than foreign-exchange fluctuations) that can cause the Company\u2019s gross margins to decline.",
-        "8ea9aa0a-829e-41b4-8829-852eebe2e7d8": "Explain why the Company\u2019s first-quarter net sales have historically been higher than in subsequent quarters and describe two additional events or conditions mentioned in the text that could trigger an unexpected drop in quarterly net sales.",
         "c21a8a0d-1c15-4772-813c-49df6c18c9a6": "When the U.S. dollar strengthens relative to foreign currencies, the Company may choose not to raise international product prices for competitive reasons.",
-        "495f0814-fe4c-4360-a5cb-cacc4534b454": "(a) Identify TWO distinct negative consequences this pricing decision can have on the Company\u2019s reported financial results.",
         "0da3a9fe-f287-4736-b163-685d6c90cd0b": "According to the 2024 Form 10-K excerpt, in which geographic region are the Company\u2019s vendor non-trade receivables and long-term supply-agreement prepayments most concentrated, and what specific credit-risk limitation does this concentration create?",
-        "254d9758-b6d4-42f5-8ed5-096e0e7f420a": "Identify two distinct factors\u2014other than changes in statutory income-tax rates\u2014that the document states could cause the Company\u2019s effective tax rates to fluctuate.",
-        "ebb6ac9e-2119-46e1-a673-5ea87d484369": "According to the passage, which senior executive is specifically charged with overseeing the identification, assessment, and management of material cybersecurity risks, and how long has this person led the Company\u2019s Information Security team?",
         "ceae5bbf-f5df-4078-a55a-a28422a21aa2": "The text states that the Company\u2019s stock repurchases can be affected by share-price volatility.",
         "b398b6b8-24a8-4fa0-843d-5bcdadfccc5c": "According to the passage, which four executive-level roles (by title) does the Audit Committee routinely include in its cybersecurity-risk discussions with management?",
         "949356a8-812c-4a5f-9bf2-cec7674de4e1": "Identify the two governing bodies, mentioned in the text, that receive reports on cybersecurity incidents and risks from the Audit Committee.",
-        "a46fe9cb-63cf-44f4-9eae-e2f1c18fef11": "According to the document, what is the maximum potential financial penalty the European Commission could impose on the Company if it makes a final determination that the Company violated the Digital Markets Act?",
         "c1be9dab-9579-483d-968d-3531e0dc96b7": "In the Epic Games case, what specific action did the California District Court\u2019s injunction prohibit the Company from taking with respect to U.S. iOS and iPadOS App Store apps?",
         "5b388000-0353-4dde-b655-57400e4e4874": "According to the 2024 Form 10-K excerpt, what specific action did the California District Court\u2019s injunction prohibit Apple from enforcing against developers on the U.S. iOS/iPadOS App Store?",
         "e1a33aa9-94c6-43fd-a538-8eea2aebda38": "Name two post-injunction legal maneuvers Apple has undertaken (with dates) as described in the same filing.",
@@ -85,101 +54,65 @@
         "a4d6f9c3-2397-4d63-9f9e-83f690c79e6f": "In 2024, Apple reported that Mac net sales rose 2 % year-over-year. According to the document, what specific Mac product line was cited as the primary driver of this increase?",
         "f348e9ed-e0a1-4ee5-af28-b25c4bbb3270": "Services net sales for 2024 include an item described as \u201camortization of the deferred value of services bundled in the sales price of certain products.\u201d Is this item added to or subtracted from the Services revenue total that Apple reports?",
         "8ba49ba1-83ec-4d2b-bc40-f9d1afd33a46": "In 2024, the Services gross margin percentage rose to 73.9 %.",
-        "05357eaf-ea95-4b78-a579-30e2093a6db8": "Identify the two specific factors cited in the text that caused this percentage increase compared with 2023.",
         "93e9b406-1dac-4815-a1e3-511fff7a6d49": "In 2024, the Company\u2019s effective tax rate was 24.1 %\u2014considerably above the 21 % statutory federal rate. According to the disclosure, what specific one-time item (and its dollar amount) was the primary driver of this increase?",
-        "368ea02b-9528-412d-867e-2f9be476c3b0": "Looking only at the contractual obligations disclosed as of 28 September 2024, which single category of short-term cash requirement (i.e., payable within the next 12 months) is the largest, and what is the amount that must be paid?",
         "f914d0f7-07e0-4140-aed4-3410db7c8cd2": "According to the September 28, 2024 Form 10-K, how much of Apple\u2019s $12.0 billion in other purchase obligations is scheduled to be paid within the next 12 months?",
         "f5fe32d6-f35a-45b1-896b-9e838b09a11a": "As of the same date, what is the remaining balance of Apple\u2019s deemed repatriation tax payable under the TCJA, and how much of that amount is expected to be paid within the coming year?",
         "8b8e5631-bb7e-46b0-8ada-63ccddddd246": "According to the September 28, 2024 financial statement excerpt, what is the exact euro-denominated amount that the Company is obligated to pay Ireland under the State Aid Decision, and within what maximum time frame must this payment be completed?",
-        "1de2b1a4-e04a-4459-84af-05371ab071e8": "Identify the effective fiscal quarter and year in which the Company will adopt ASU 2023-09 (Income Taxes) and describe the transition method it will use for implementation.",
-        "19c9be30-9f84-4995-a721-3caeb8b26dbc": "According to the passage, what two criteria must be met before the Company records a liability for a legal proceeding or claim?",
         "15172364-c63b-4dae-b519-c27a7190970b": "The passage states that reserves for uncertain tax positions are adjusted when facts and circumstances change. Identify one specific example of such a change that is explicitly mentioned.",
         "129f2858-7ee1-4039-87af-d9373d2e3f29": "Based on the September 28, 2024 data, how much would the fair value of the Company\u2019s investment portfolio decline if all relevant interest rates rose by 100 basis points, and what was the corresponding dollar impact for 2023?",
-        "67f54aa8-fca3-42f7-931e-67956e550e70": "Using the Company\u2019s 2024 value-at-risk model results, what is the maximum one-day loss (in millions) that could occur with 95 % confidence due to adverse foreign-exchange movements in its derivative positions?",
         "49753118-9686-4a91-808d-e3ada94212ae": "According to the excerpt, which specific financial statement is scheduled to appear on page 31 of Apple Inc.\u2019s 2024 Form 10-K?",
         "2ac77dab-cb84-4f5f-be10-00ee0660c7b5": "The note states that \u201call financial statement schedules have been omitted.\u201d Based solely on the text, cite one condition listed that justifies this omission.",
-        "452c1240-1574-4362-b29c-9f964fc8c5e7": "Question 1",
-        "eb7f96d0-98b7-4f62-9b93-d7f58064525f": "Using only the figures in the 2024 column, calculate Apple\u2019s 2024 gross-margin percentage (gross margin \u00f7 total net sales) and state the result rounded to one decimal place.",
         "089ff6e4-e788-4b3f-8c6c-283a328f04a0": "In Apple\u2019s 2024 Consolidated Statement of Comprehensive Income, what is the dollar amount of the adjustment for net (gains)/losses realized and included in net income that relates to derivative instruments?",
         "490dc1d3-359f-4207-acf0-e13cf31c1ee9": "Comparing the three fiscal years shown, in which year did Apple report the largest total other comprehensive income/(loss) figure, and what was that figure?",
         "8fd3c17c-9bf1-479a-ade0-b560f08bed80": "Using only the September 28, 2024 figures, calculate Apple\u2019s working capital (total current assets minus total current liabilities) and state whether the result is positive or negative.",
         "c98bc7b7-318e-4192-925c-7f43fed17750": "Between September 30, 2023 and September 28, 2024, did the balance of Apple\u2019s total term debt (current plus non-current) increase or decrease, and by how many millions of dollars?",
-        "b943c09b-538f-4f36-b2ae-20b5f56e601a": "Question 1",
         "29f2b501-f0e6-4310-a5cb-f7bf167571e1": "Using only the figures in the 2024 Consolidated Statement of Shareholders\u2019 Equity, calculate the amount (in millions) by which Apple\u2019s total shareholders\u2019 equity changed from the beginning to the end of fiscal-year 2024 and state whether the change represents an increase or a decrease.",
         "a9cf9cfb-80d3-4b41-b6d8-dde36ef1573a": "In the 2024 fiscal year, Apple reported net income of $93,736 million. After accounting for all adjustments, changes in operating assets and liabilities, and other reconciling items, what was the final amount of cash generated by operating activities for that year?",
         "527e7d14-4a5d-435b-9365-7d6ca2b68954": "During 2024, Apple spent $94,949 million repurchasing its own common stock. Identify the single largest cash outflow item within the financing activities section for that same year and state its amount.",
-        "22a27ea5-f6a7-4807-9887-a2aa85ac98ad": "According to Apple\u2019s 2024 Form 10-K Note 1, how does the Company determine the cost basis of marketable securities when they are sold?",
-        "30b34fab-1c53-47f3-844d-8f19d296bfba": "In Note 1 Apple states that it combines lease and non-lease components for certain facility leases. Identify the three categories of facilities for which this combined accounting treatment is applied.",
         "d32a29c6-48a3-4fe9-bd28-86567b015a7b": "According to the revenue-recognition policy described, explain the two criteria that must generally be satisfied before the Company considers that \u201ccontrol\u201d of a product has transferred to its customers.",
-        "18c6ea22-41b4-42bc-a70f-4d06bb0b5bd4": "When the Company sells third-party applications through the App Store, does it report the gross amount billed to customers as Services revenue? Cite the specific accounting treatment and the reasoning provided in the text.",
         "d8236e10-c34e-4cab-a834-53b4fb588cca": "According to the 2024 Form 10-K excerpt, how does Apple report third-party application sales made through the App Store in its Services net sales, and why is this method used?",
         "0665cba7-1f96-40a8-b8a6-6b487e1b29b8": "Using the net sales data provided, calculate the year-over-year dollar change in Services net sales from 2023 to 2024, and state the amount recognized in 2024 that had been included in deferred revenue as of September 30, 2023.",
         "39dfd884-141d-4fbf-b1ea-8e99512b1190": "Based on the Company\u2019s deferred-revenue footnote as of 28 September 2024, what percentage of the $12.8 billion total is expected to be recognized as revenue more than three years in the future?",
-        "0ee136d8-d997-48f4-82b5-732206ab0348": "In the 2024 earnings-per-share table, how many restricted stock units (RSUs) were excluded from the diluted EPS calculation because their effect would have been antidilutive?",
         "048e910a-fc47-4a12-8925-c6f1801f9f4d": "Based solely on the table, what is the dollar amount of gross unrealized losses on Apple\u2019s \u201cCorporate debt securities\u201d line item?",
-        "67acc0e6-8f63-4b09-a98e-48ed608b2bbe": "According to the table, how much of the \u201cNon-U.S. government securities\u201d balance is classified as short-term (\u2264 1 year) versus long-term (> 1 year)?",
-        "f0a82279-d585-4615-a69b-82f8af4a463e": "Question 1",
         "dc5ced4e-e8ac-46ee-b30f-b441bcdcc5c2": "As of the 2023 balance-sheet date, what is the dollar amount of Level 2 corporate debt securities that the Company classifies as non-current, and how does this figure compare with the total fair value of all Level 2 assets reported in the same period?",
-        "c051fdb8-8b45-41c0-97af-0a86662158d7": "Question 1",
         "dd913ed3-26bf-4037-abd6-3e4c6329a4e5": "As of 28 September 2024, what percentage of the Company\u2019s non-current mortgage- and asset-backed securities had contractual maturities longer than 10 years?",
-        "ac651bf7-38f0-4174-8ac8-d926c8619e4e": "Question 1 (Quantitative & Hedging Designation)",
         "be22b423-ff4c-4891-b016-4bf15814b98e": "As of 28 September 2024, what is the combined notional amount (in millions) of the Company\u2019s foreign-exchange derivative instruments that are formally designated as accounting hedges plus those that are not designated as accounting hedges?",
-        "757b0cb7-81fd-4d0a-ad58-823dcb796b4e": "Question 1",
-        "cc870f56-1ba4-490b-91e8-bebcbc7ad0ba": "Using only the figures disclosed in Note 5, calculate the Company\u2019s 2024 capital expenditure (i.e., the amount of new PP&E added during the year) and show your computation.",
-        "f935cdf5-8271-4056-a0c4-ee4a50509f93": "Question 1 (Quantitative/Computational)",
-        "7ec3f133-629c-428d-861b-11147e000299": "Using only the 2024 data provided, calculate Apple\u2019s effective foreign tax rate on its foreign pretax earnings and explain in one sentence how the $10.2 billion State Aid Decision charge affects that rate.",
-        "22a05f45-649e-4d61-b5e3-fa73de5ea8a7": "Question 1 (Quantitative/Calculation)",
         "d3c5b7d7-264f-4337-8ba8-54b675bd816c": "Using the 2024 deferred tax data provided, calculate the percentage change in the Company\u2019s net deferred tax assets from fiscal 2023 to fiscal 2024. Show the components you used and round your final answer to one decimal place.",
         "dacfbd37-34fc-4d18-ac57-cf49472408dd": "According to the excerpt, for which tax years do U.S. federal and \u201ccertain major foreign\u201d jurisdictions remain open to examination, respectively?",
         "ed636205-83ba-4cb7-a0c2-3aa772e22c6a": "Within the next 12 months, what is the approximate range (in billions of dollars) by which Apple\u2019s gross unrecognized tax benefits could decrease, and what are the two primary tax matters driving this potential decrease?",
-        "dd5d720e-9c4c-483b-9e7e-05fe9e2ae832": "Using only the figures provided in the Note, calculate the percentage change in the carrying amount of total right-of-use assets from September 30, 2023 to September 28, 2024 and state whether the change represents an increase or a decrease.",
         "7fdd1c7c-24c3-4737-8a3d-fd1da8a7ef28": "According to the lease-liability maturity table, what is the amount of undiscounted operating-lease cash flows that the company expects to pay in the fiscal year 2027, and how does this figure compare with the undiscounted operating-lease cash flows scheduled for 2026?",
         "96f7e17f-5a51-4299-87ca-e5bcb3b2b4c4": "As of September 28, 2024, what discount rate was applied to the Company\u2019s lease liabilities, and what benchmark is typically used to estimate this rate when the implicit rate cannot be readily determined?",
         "11716c11-fb61-4862-be88-228e43fe2149": "Regarding the $849 million of fixed-payment lease obligations that had not yet commenced as of September 28, 2024: (a) over what range of years will these leases begin, and (b) what is the shortest and longest lease term (in years) disclosed for these future leases?",
-        "94d7d6b7-8c0f-412b-932a-4a2daabad409": "Question 1",
         "b4393f5b-19a2-4e48-9e57-157d70502e4a": "As of 28 September 2024, the Company had $10.0 billion of commercial-paper obligations outstanding.",
-        "b7c0d8f7-13fd-4851-8957-6a86f69c9177": "Question 1",
         "b7abbe1e-47b9-42d0-9a7f-0758e9bb8b25": "According to the disclosure, what is the total dollar amount (in millions) of Apple Inc.\u2019s term-debt principal payments that will come due in the three-year period covering 2025 through 2027?",
         "15f61214-f740-4547-916e-08df60b02b8b": "Based on the fair-value data provided, what was the dollar-and-percentage change in the carrying amount of the Company\u2019s Notes between 30 September 2023 and 28 September 2024?",
         "ecbdc5b0-18f0-484b-b3b1-cf0b2a89d492": "Using the share-count reconciliation for 2024, calculate the net reduction in common shares outstanding (in thousands) after considering both shares repurchased and shares issued for employee-related purposes.",
-        "d9055525-dba6-4f5b-8494-6f23d3edd7eb": "Question 1 \u2013 Quantitative Analysis",
         "089ce341-3e35-4691-9c90-9323c155cda8": "Using only the RSU data provided, calculate the weighted-average grant-date fair value per RSU for the awards granted during fiscal-year 2023. Show the exact dollar amount reported in the disclosure.",
         "3db59c79-5212-4337-80a2-e65e39bd684e": "According to the note, what is the total dollar amount of Apple\u2019s unconditional purchase obligations that are scheduled to be paid in 2027?",
         "b46bd210-6be6-450d-937d-43fa070aa3c4": "Identify the single year (2025\u20132029) in which Apple\u2019s scheduled payments under unconditional purchase obligations reach their lowest level, and state the corresponding payment amount.",
         "c85d5062-3894-4f6c-9fdc-ecfabf58af06": "According to the context, what specific factors could jeopardize the continued availability or pricing of the custom components that the Company relies on, and why are these components particularly vulnerable compared with industry-standard parts?",
-        "31fdb005-1175-4bce-b847-15963a67576a": "The Company evaluates its geographic reportable segments primarily on two financial metrics. Identify these two metrics and explain why asset information is excluded when management reviews segment performance.",
         "5f657ce3-55e7-4f17-8933-b997f323725f": "Based solely on the 2024 data provided, calculate the operating margin (Operating income \u00f7 Net sales) for each reportable segment and state which segment achieved the highest operating margin.",
         "45c69e71-eba6-43ea-85ab-17ca59c1c928": "Using only the information in the document, identify the two countries whose net sales each accounted for 10 % or more of total net sales in 2024, and for these two countries compare their 2024 net-sales figures with their respective long-lived asset balances as of September 28, 2024.",
-        "cf38a6c5-143a-4c07-b589-bf1c7126d1f0": "According to the independent auditor\u2019s report, what specific dollar amount of Apple\u2019s gross unrecognized tax benefits as of September 28, 2024, would actually affect the Company\u2019s effective tax rate if those positions were ultimately recognized?",
         "9643ac5f-f6fe-4a86-80e4-6ddf7b160cee": "The report states that the auditor expressed an unqualified opinion on Apple\u2019s internal control over financial reporting as of September 28, 2024.",
         "df1e4bc0-0448-4299-9dc6-3be6b34be675": "According to Note 7, what is the dollar amount of gross unrecognized tax benefits that, if recognized, would actually affect Apple\u2019s effective tax rate as of 28 September 2024?",
         "8cdb0150-2146-47d0-be4b-91723f8328e6": "In auditing Apple\u2019s uncertain tax positions, what two key areas does the auditor specifically identify as requiring \u201csignificant judgment\u201d based on interpretations of tax laws and legal rulings?",
         "e3656428-b45c-466c-9053-7f913348b0b8": "According to the auditor\u2019s description, which three categories of controls did Ernst & Young specifically test when evaluating the Company\u2019s uncertain-tax-position process?",
         "13523961-d024-4969-b61e-25a9e36d54da": "Identify two external sources of evidence (beyond management\u2019s own analysis) that the auditors obtained to corroborate the technical merits of a particular uncertain tax position.",
         "37acd4ac-8002-4319-aceb-98bedcf69f89": "According to the independent auditor\u2019s report, which specific framework (including its year of issuance) was used as the benchmark to evaluate the effectiveness of Apple Inc.\u2019s internal control over financial reporting as of September 28, 2024?",
-        "c92fad21-dafc-4f97-a884-c1018dbc6427": "The report states that internal control over financial reporting has inherent limitations. Name one of the key risks mentioned that could cause controls to become inadequate in future periods even if they are currently effective.",
         "0d909cee-2d5d-49b9-9d45-6a7bb67e3a4a": "According to the passage, what is one reason why internal control over financial reporting might fail to prevent or detect misstatements?",
         "87e6b287-dfee-44e1-bbf8-83f80d99675b": "The passage states that evaluations of control effectiveness face future-period risk. Identify one specific condition or change mentioned that could render those controls inadequate.",
         "bdae330a-b88a-436d-b7f0-53e06b70214f": "According to the passage, what specific conclusion did the Company\u2019s principal executive officer and principal financial officer reach regarding the effectiveness of the disclosure controls and procedures as of September 28, 2024?",
-        "d82f3a9f-816a-4e66-ab54-d12b9ac06f07": "The passage states that management, including the CEO and CFO, does not expect the Company\u2019s internal controls to prevent or detect all errors and fraud. What two inherent limitations of any control system are explicitly cited to justify this position?",
         "25499db3-61b7-4831-b1b2-eed7787e3958": "According to the 2024 Form 10-K excerpt, what specific conclusion did Apple\u2019s management reach regarding the effectiveness of its internal control over financial reporting as of September 28, 2024?",
         "93bd1a43-888c-4702-8a36-c6738d0eed3c": "During the fourth quarter of 2024, did Apple identify any changes in its internal control over financial reporting that materially affected\u2014or were reasonably likely to materially affect\u2014those controls?",
-        "31cea712-7408-4135-8a42-8fa90c5b1557": "Question 1",
         "b06a4931-a3aa-46f0-82fd-7c4125f76468": "According to the Form 10-K excerpt, what are the key differences between Deirdre O\u2019Brien\u2019s and Jeff Williams\u2019s respective Rule 10b5-1 trading plans with respect to (a) the maximum number of shares that may be sold, (b) the vesting periods of the shares covered, and (c) the scheduled expiration dates of the plans?",
-        "99baa0a0-b758-4c90-aff8-03aab04c560e": "Question 1",
-        "3e99b775-8f05-4eb6-ab1c-27ef00c38299": "According to the exhibit list in Part IV of the Form 10-K, which specific exhibit number contains the \u201cAmended and Restated Bylaws of the Registrant effective as of August 20, 2024,\u201d and on what date was the 8-K that incorporated this exhibit filed?",
-        "eb3adc15-f8d7-4dfe-be8d-e0e799b8672e": "Question 1",
         "cc991c45-7e60-49a8-9e67-73ba0ab29750": "Using only the provided excerpt, identify the earliest and latest maturity years among all the fixed-rate notes listed in the Officer\u2019s Certificates and state the corresponding coupon rates for each of those two notes.",
-        "befb1802-83e0-4efd-8cde-a571e5c78b2a": "Question 1",
         "37563332-3545-4e53-940e-077ae9abf147": "According to the Officer\u2019s Certificates listed in the exhibit index, on what single calendar date did the Registrant simultaneously issue both a 3.000% note due 2027 and a 4.250% note due 2047?",
-        "9c5a8a93-e328-4f1b-a9c8-669e00bcfd40": "Question 1",
         "04e0836e-7e9f-4888-85c4-8da300383533": "Using only the dates and coupon rates shown in the context, identify the earliest-dated Officer\u2019s Certificate that includes a 3.750% coupon and state the maturity year of the longest-dated note issued under that particular certificate.",
         "74fc5a79-3455-4683-9121-cd5390ec2e8f": "According to the Officer\u2019s Certificate dated August 5, 2021, what are the four coupon rates and corresponding maturity years of the global notes that were established on that date?",
         "27e044aa-4d36-4209-895a-be8afcafdec8": "Identify the exact date on which Apple Inc. entered into the Indenture with The Bank of New York Mellon Trust Company, N.A., as Trustee, and state the SEC form type (e.g., 8-K, S-3) in which this Indenture was filed.",
         "27c5f92b-b397-4c1d-b8c4-647d9333d3da": "According to the Officer\u2019s Certificate dated May 10, 2023, what is the coupon rate of the Apple notes that mature in 2033?",
         "651de3f2-b8ac-425d-9883-2114e888532c": "Which exhibit number corresponds to the Apple Inc. 2022 Employee Stock Plan, and on what date did Apple file the Form 8-K that incorporated it?",
         "7604dd96-f766-4e9c-ba5a-05a32ed809e2": "According to the 2022 Employee Stock Plan filings, on what effective date was the Form of CEO Performance Award Agreement (10-Q 10.2) adopted, and which SEC form and filing date first disclosed this agreement?",
-        "d378960e-acd3-4864-a702-be2ccca491e8": "The Insider Trading Policy appears as exhibit 19.1. Is this exhibit marked as \u201cfurnished\u201d (single asterisk) or \u201cfiled\u201d (double asterisk), and what distinction does that marking imply for its legal status versus other exhibits in the list?",
         "8d1a334f-adca-4da7-9ba2-b2e86e5d9b38": "According to the exhibit list, which specific Inline XBRL document(s) are identified as being \u201cfiled herewith,\u201d and what content does each of those documents cover?",
         "93f3d1ab-678c-4a23-8b06-239fbc4d09c0": "The Registrant omits certain long-term debt instruments under Item 601(b)(4)(iii) of Regulation S-K. What obligation does the Registrant assume regarding these omitted instruments, and to whom must it fulfill that obligation?",
         "03974d0d-760e-4c46-a720-64a7ee2232ec": "According to the signatures section, on what exact date did Apple Inc.\u2019s Form 10-K for 2024 receive its final authorized signature?",
@@ -188,56 +121,36 @@
         "9908d54e-f029-44c2-aba6-3cccfe3b8a5c": "The exhibit lists eight separate series of Apple\u2019s Notes that mature in 2029. Identify the two distinct 2029 Note series by their coupon rates and state whether each is senior or subordinated debt (as described in the exhibit).",
         "6ddeb225-566e-4640-b66f-567d8613a3d2": "Under the Company\u2019s rules, if a director is removed by the shareholders and the resulting vacancy is not filled by the remaining directors, what specific shareholder action is required to fill that vacancy?",
         "41b3501f-1df1-435d-8879-cdd03d2f3371": "When amending the Bylaws to reduce either the fixed number or the minimum number of directors to fewer than five, what percentage of outstanding shares must cast votes against the amendment to block its adoption?",
-        "8cd6a255-9706-49ca-b6cc-6e471edc7939": "Question 1",
         "169bd723-5394-43b6-919d-03b5848023fb": "According to the Company\u2019s Articles and Bylaws, what two alternative thresholds must be satisfied for a special meeting of shareholders to be validly called?",
-        "6cfa7d28-ea73-46ef-b519-d3f763471278": "Question 1",
         "13f61915-de27-42b1-81dd-a115d0f17387": "Which two indentures govern the Notes described in the document, and on what dates were they originally executed?",
         "8156ac09-3cc7-412a-918c-ab10711ad01c": "As of 18 October 2024, what is the aggregate principal amount (in euros) of the 0.875% 2025 Notes that remained outstanding?",
         "48f018b1-2de6-42e9-90a7-8d081ce4d30b": "On what exact calendar date does the 2.000% 2027 Notes issue pay its annual interest, and in which year did these interest payments first begin?",
         "36276998-2d45-4a1d-b3c6-ef40db4db293": "On what exact calendar dates each year does the issuer pay interest to the holders of the 3.050% 2029 Notes?",
-        "537e0d97-3ef5-4a09-a2ec-2e6c203f6f89": "Explain in one sentence why, according to the Ranking section, a holder of the 2042 Notes would stand behind the creditors of the issuer\u2019s subsidiaries with respect to those subsidiaries\u2019 assets.",
-        "24c94955-c405-4d4c-9443-86ee6c204e21": "Question 1",
         "cc66dc8e-6bb6-45a4-9ec6-7a0169466986": "If the euro becomes unavailable to the Company due to exchange controls or other circumstances beyond its control, which currency will be used for paying principal, redemption price, interest, and any additional amounts on the 0.000 % 2025 Notes, and will such a switch constitute an event of default under the Notes or the applicable Indenture?",
         "fe530048-999f-42ba-be27-1fbac24dab52": "Under what circumstances may the Company elect to make payments on the 3.050% 2029 Notes and the 2042 Notes in euro instead of pounds sterling?",
         "93308daa-38ec-4b02-882b-5957a10fe8d9": "If pounds sterling (or euro, after any redenomination) becomes unavailable to the Company because of exchange controls or other circumstances beyond its control, what currency-related consequence is explicitly provided for in the text?",
         "9f5b19a5-946b-4015-bcde-d3bc3f56da73": "Under the terms described, if the euro or pound sterling becomes unavailable for payment on the 3.050% 2029 Notes or the 2042 Notes, which currency will be used for settlement, and what specific exchange-rate source and timing must be applied to determine the amount payable in that currency?",
-        "7cc5ea8d-a470-4e0b-b059-fff53de3b52b": "According to the document, what precise definition is given for \u201cBusiness Day\u201d with respect to the 3.050% 2029 Notes and the 2042 Notes, and which cities\u2019 banking-institution closures are referenced in that definition?",
-        "6fa9956e-dcb1-4664-8586-425ecf4eb537": "Question 1",
         "54f303c2-507b-4b15-89bd-4d23b27216cc": "Under the Notes\u2019 Additional Amounts covenant, list two specific categories of holders (or beneficial owners) described in sub-sections (a)\u2013(f) for whom the Company is not required to pay any Additional Amounts to gross-up their net payment after U.S. withholding tax.",
-        "30a2bf74-3bc6-41e7-940a-ddab2dd3906e": "Question 1",
         "880fb451-12ef-401a-bf3d-751a40383bf3": "Which numbered exception (1)\u2013(10) removes the Company\u2019s obligation to pay \u201cadditional amounts\u201d when the withholding Tax arises only because the Noteholder failed to deliver a required U.S. tax form such as Form W-8BEN or W-8BEN-E?",
         "75ba0e89-cd9c-48ed-a3c9-59b599a311ad": "According to the document, which specific entities are explicitly excluded from the definition of a \u201cUnited States person\u201d when the term is applied under the sections \u201c\u2014Payment of Additional Amounts\u201d and \u201c\u2014Redemption for Tax Reasons\u201d?",
         "62976682-83dd-41fe-aba9-e9174daed9fb": "Under the \u201cRedemption for Tax Reasons\u201d provision, what three types of legal or interpretive events in the United States are listed that could trigger the redemption right?",
-        "69ab7ebe-440f-4640-a374-4a635a1d6d31": "Question 1 \u2013 Notice-period Calculation",
         "ed0bfaaf-17f8-442a-9a34-c301a381afe6": "If the issuer elects to redeem the 0.875 % 2025 Notes for tax-related reasons, what is the minimum number of calendar days\u2019 advance notice that must be given to holders under the provisions quoted above?",
-        "bca187c6-26f9-4f9a-8548-27e6b9fec383": "Question 1",
         "70dcc773-cca0-46f3-b58d-7d8756b79e4c": "For each series of notes listed below, state the exact calendar date that constitutes its \u201cPar Call Date\u201d under the defined terms:",
         "8ce346d4-4f2b-4b93-9511-168885d51c5e": "In the definition of \u201cComparable Government Bond\u201d for the 3.050 % 2029 Notes and the 2042 Notes, which specific government\u2019s bonds are initially chosen as the reference, and which additional group of market participants must be consulted if that reference bond is not in issue?",
-        "b1904b9c-fc7f-474c-a3e6-c6b5ff0b81b1": "According to the covenants described in the Indentures, name any one restriction that is explicitly NOT imposed on the issuer regarding its capital-stock transactions.",
         "3aa50dcd-5102-4a17-9a6f-a7a347d583a9": "Under the Indentures, which three specific types of financial or corporate actions are explicitly NOT restricted by the covenants described in the first paragraph?",
         "4925a6ec-b2bc-4e39-9e22-69ddf3f59708": "When the company consolidates, merges, or sells substantially all of its assets, what three conditions must be satisfied for the transaction to comply with the Indentures?",
         "dd6cb9f8-c428-4180-b562-4c0180271641": "Under the consolidation covenant described in the document, what specific legal consequence occurs to the original issuer\u2019s liabilities and obligations under the Indentures once a Successor has been substituted?",
-        "7f74e112-ab0f-4cf2-b0e9-e3901292992e": "Concerning Events of Default, how does the required holder-percentage threshold that triggers a covenant breach differ between the 2013 Indenture and the 2018 Indenture?",
         "6006e3cc-ef4d-46b4-84fb-25c5f7d67eac": "Under the 2018 Indenture, what minimum percentage of outstanding principal amount must the holders of a series of debt securities hold in order to notify the trustee and the issuer that they want the principal, premium, and accrued interest on that series accelerated?",
-        "ca267648-c242-49be-bdca-aace589aa43a": "If the issuer has cured or waived all events of default other than non-payment caused solely by an acceleration, what minimum percentage of outstanding principal amount of the affected series must vote to rescind the acceleration and its consequences?",
-        "20e3086c-90b6-496f-8ada-27436c5f02dc": "Question 1 (Recall & Comprehension)",
         "2d12aa49-7584-405c-9adf-a8b5d6714615": "According to the text, within how many days after the end of the fiscal year must the company deliver to the trustee an officer\u2019s statement regarding any default under the applicable Indenture?",
         "1d328021-067e-4d90-bb15-2c1256e544e1": "Under the Indenture, what specific protection must the holders of a series of debt securities offer the trustee before the trustee is obligated to act on their request, and why is this protection required?",
-        "b7a22b46-cf83-469f-9f43-c0d701d4dcf7": "Identify two types of modifications to the Notes that absolutely require the consent of every affected holder, and explain why these particular changes cannot be approved by a simple majority.",
         "7430b077-e833-4a1e-8551-36165402a884": "Under the 2013 Indenture, what two conditions must be satisfied before a supplemental indenture that adds, changes, or eliminates provisions can affect debt securities of a series created prior to that supplemental indenture?",
-        "a378185d-59d2-451f-a770-448a49b2a0ad": "Which specific party(ies) must consent\u2014by at least a majority in aggregate principal amount\u2014to waive the issuer\u2019s compliance with certain restrictive covenants under either Indenture?",
         "ad9740b7-1136-4c3e-9d97-3461e55d88ec": "Under the Indentures, which two types of defaults may never be waived by a majority vote of the outstanding Notes of a series, even if the holders of that majority wish to do so?",
         "2be91837-8bd2-42c9-a108-65d8911775c5": "If the requisite majority of Note holders waives a past default, what specific legal effect does the Indenture state this waiver has on that default and any related \u201cevent of default\u201d?",
-        "fc378f76-49f1-4772-a52d-e69af18267ac": "**Question Type:** Definition/Application",
         "629a0ceb-918c-406a-a3d2-0838e60de2a8": "**Question:** The company wishes to eliminate its duty to adhere to all restrictive covenants listed under the Indenture for the 2027 Notes, without being discharged from the Notes themselves.",
-        "0658723c-32e5-4366-a518-0a350287e3c6": "Question 1",
         "25eb9f82-ceb5-409d-b29a-fe50b8668426": "For the 0.000 % 2025 Notes, 0.875 % 2025 Notes, 2026 Notes, 2027 Notes, 1.375 % 2029 Notes and 2031 Notes, what specific types of securities are now defined as \u201cU.S. government obligations\u201d under the indenture provision quoted in the passage?",
         "3230e715-f0f0-4206-9281-b45ca77ec8b4": "Under exactly which three circumstances may the Notes represented by global notes be exchanged for definitive certificated notes, and what are the minimum denominations for such certificated notes in both euro- and sterling-denominated issues?",
         "df40a891-590b-4dab-b75d-2dfbfb873919": "Identify the trustee under the Indentures for these Notes and describe any current or potential future commercial relationships between the issuer and that trustee or its affiliates.",
         "6f02ec3f-0e99-49a4-ade7-e6b1ee14aac7": "According to the Notice of Grant, by what date must the Participant notify Apple\u2019s Stock Plan Group if they wish to decline the Award, and what consequence occurs if no notification is provided by that deadline?",
-        "5926b5ba-b49a-4b9e-8f56-813ccd078364": "Identify the three specific data elements (other than the Participant\u2019s name) that are left blank in the Notice of Grant and must be completed for each individual Award.",
-        "533863e8-3c62-4a7b-a45c-978174e39f15": "According to Section 3, what happens to a fractional RSU that vests on a Vesting Date if the Company has not elected to issue fractional Shares and the Award terminates before the next Vesting Date?",
-        "9b19deb1-090f-4d1e-9dea-991450826bfa": "Under Section 4, how many days of an approved personal leave of absence will still count as \u201cactive service\u201d for vesting purposes before the vesting of the Award is tolled?",
         "ab591aab-eb4e-49fc-9f58-29ed3a90d257": "According to the Award Agreement, on which day does vesting of the Award begin to be tolled during an approved personal leave of absence?",
         "d52bdedc-d25a-457b-b246-3abd21db25ef": "Does the Award Agreement alter the Participant\u2019s status as an at-will employee or limit the Company\u2019s ability to terminate employment at any time?",
         "4b98082a-2ebf-4475-b0a2-75072a176c10": "Under the plan described, when\u2014if ever\u2014does a participant begin to accrue actual shareholder voting rights with respect to RSUs, and what specific event triggers those rights?",
@@ -245,35 +158,24 @@
         "4b798943-8dfd-4e85-8846-01fa1353ac0c": "Under the plan terms, what specific consequence occurs to any RSUs that remain unvested as of the Severance Date if the Participant\u2019s Termination of Service is for any reason other than Disability?",
         "70c8314f-1aa5-43f3-af34-c92b21bca21c": "When a Termination of Service is due to Disability, how is the number of RSUs that will vest on the Severance Date calculated?",
         "eb386d7c-89df-4a84-834e-a1ff0faaec0e": "Under the plan described, if a participant dies before the next scheduled vesting date, what happens to their unvested RSUs and any associated Dividend Equivalent Rights?",
-        "1693025c-22d9-4ad1-91ca-e8e5a6002486": "According to the recoupment provisions, name one specific circumstance (other than committing a felony) that would allow the Company to claw back Shares or other amounts the participant received under the Award.",
-        "3b20469b-d91b-4b34-85a9-91313c66b468": "According to Section 9, which document\u2019s terms will override this Agreement if a conflict arises between them?",
         "418d413b-9d99-41be-8ab8-5f35a3538ced": "Under Section 10, what specific type of cash dividend will NOT trigger an adjustment to the number of outstanding RSUs?",
-        "7d15625a-9dc7-4b0b-9be1-cc924cd4e5f7": "Question 1",
         "d530c7d8-85ea-4eca-ab8c-d7fbcf26ea3a": "According to the document, who bears the ultimate legal responsibility for all Tax-Related Items arising from the RSU Award, even if the Company or the Employer withholds amounts on the Participant\u2019s behalf?",
         "4952c69e-96a5-459f-8160-7f29741ec9c0": "According to the passage, if the Company applies the maximum statutory withholding rate and consequently withholds more than the actual tax due, what two possible remedies (stated in the text) may the Participant pursue to recover the excess amount?",
         "f8132a63-f218-42e1-a2c6-543aa5d891ff": "When Shares are withheld to cover Tax-Related Items, how does the tax treatment of the vested RSUs compare with the actual number of Shares the Participant physically receives?",
-        "13412ad9-a811-46bc-ae09-935512813d88": "According to the Award Agreement, what specific action can the Company take if a Participant fails to meet their obligations regarding Tax-Related Items?",
         "82805744-663c-43f1-ad57-2553c2045916": "Under the \u201cData Privacy\u201d clause, name two categories of personal information the Company and its related entities are authorized to collect, use, and transfer anywhere in the world for Plan administration.",
         "803666c8-49d8-48f0-ae38-ea3cc0270230": "According to Section 15, what must occur before any provision of the Award Agreement can be waived by the Company, and who has the authority to effect such a waiver?",
         "966ecdda-06a2-4a90-836e-90a06467af21": "In Section 16, what is identified as the sole mechanism for amending both the Plan and the Award Agreement, and which party\u2019s written signature is expressly required for an amendment to be valid?",
         "c10578be-923a-44c8-b718-94e4dd16be8b": "According to Section 17, what specific legal status does a Participant hold with respect to the settlement of RSUs, and how does this status affect their claim on any Shares?",
-        "d8cb3c4b-e954-4440-9448-956bf5da1a56": "Section 20 establishes exclusive jurisdiction for litigation related to this Award Agreement. Name the two court systems (and their specific geographic locations) in which such disputes must be litigated.",
         "f5d75f68-5733-48dd-b72f-52b93e6d47bd": "According to the Notice of Grant, by what specific date must the Participant notify Apple\u2019s Stock Plan Group at peoplesupport@apple.com if they wish to decline the Award, and what consequence follows if no notification is provided by that deadline?",
         "438cd603-5140-467f-8970-623aa94b4214": "Identify the three distinct documents or components that collectively govern the terms of this restricted stock unit performance Award as stated in the Notice.",
-        "d1176f5c-458b-4ebd-83e7-de8f1c2a043b": "According to the Award Agreement, under what specific conditions does active service continue to be recognized for vesting purposes during an approved personal leave of absence, and what happens to vesting after the 30-day threshold?",
-        "991b7f89-487b-4a3c-98c7-b40f42eedb22": "How does the document define an \u201cRSU,\u201d and what explicit limitations are placed on its treatment as property or a trust fund?",
         "3daebd7a-3c1c-4222-a9ad-3ee79d4c2efa": "According to the Award Agreement, on which day does vesting of the Award begin to be tolled during an approved personal leave of absence?",
         "d5565d32-a36b-4366-bbf0-802a842e1313": "Does the Award Agreement or the Plan guarantee the Participant any right to remain employed by the Company or any Subsidiary?",
-        "6db29d6d-d96b-40f6-88d2-711d6f8ddd28": "Question 1",
         "1e6e9a5f-c19a-46ab-a323-9ef2f993d8f5": "According to Section 5(b), how are Dividend Equivalent Rights credited to the Participant, and what determines the percentage of those rights that will ultimately be paid in cash?",
         "7f0a1055-c379-4732-82aa-9d99429216ce": "According to Section 8, what specific event triggers the immediate forfeiture of any unvested RSUs and their related Dividend Equivalent Rights, regardless of the reason for the Participant\u2019s departure?",
         "2d3aa51f-281a-4ea4-ab00-1fa505e93412": "When a Participant\u2019s Termination of Service results from death or Disability before the Vesting Date, how is the number of RSUs that ultimately vest on the Vesting Date calculated?",
-        "b52f5ffc-adae-4a85-92d5-5f9a95f0ad37": "Question 1",
         "d0b309ed-574e-4d7a-a0cf-d531022fbc91": "Under the Award Agreement, how is the \u201cSeverance Fraction\u201d calculated, and how does that fraction determine which unvested RSUs (and their related Dividend Equivalent Rights) will be forfeited on the Severance Date versus which may remain outstanding until the next Vesting Date?",
         "075cd944-fe2c-45e4-be19-f77cf632e3db": "According to Section 9, what specific authorization does the Participant give the Company regarding any brokerage firm or third-party administrator that holds the Participant\u2019s Shares or other Plan-related amounts?",
         "8bf6ea13-e661-4f99-8080-21f533af299a": "Under Section 10, what type of corporate event (giving one example explicitly mentioned) would trigger the Committee\u2019s obligation to adjust outstanding RSUs and the underlying securities?",
-        "9434624e-aab5-484c-be16-9fabed28068b": "Question 1",
-        "ad51309a-f422-462e-8a05-84606dd6351c": "According to the document, which specific withholding method must the Company use to satisfy tax-withholding obligations if the Participant is an officer subject to Section 16 of the Exchange Act, and what discretion does the Board or Committee retain in this situation?",
         "0e29e799-9344-4df9-8e8e-905e47a55b71": "According to the passage, what two options does the Company or Employer have if the maximum statutory withholding rate results in an over-withheld amount?",
         "f8ac9ea1-d876-4bce-a0a5-cf06efae4433": "If under-withholding occurs, who might the Participant be required to pay the additional Tax-Related Items to, as stated in the text?",
         "b6b507b5-b824-499a-8bfb-ca20128822cc": "For tax purposes, how many Shares is a Participant deemed to have received when the Company withholds a portion of the vested RSU Shares to cover Tax-Related Items?",
@@ -281,27 +183,17 @@
         "8df4e255-690a-42c6-bd76-deea8883751b": "According to the document, what specific mailing requirements must the Company satisfy when the Participant is no longer an employee in order for a notice to be considered \u201cduly given\u201d?",
         "c98956ae-524f-4c58-b9ae-22a20e23b8b2": "The document states that provisions of the Plan granting discretionary authority to the Board or the Committee do not automatically create rights for the Participant. What must occur for such rights to be created, as described in the text?",
         "8371999e-0561-4643-a873-2c80cf20bddd": "Under the terms of Section 17, what type of creditor is the Participant considered to be with respect to the settlement of RSUs, and what specific rights does this classification confer?",
-        "136a8929-d137-4e56-b3bb-319892de1ccc": "According to Section 20, name the two court systems (state and federal) in which any litigation arising from this Award Agreement must exclusively be conducted.",
-        "5f9d29d3-f634-4139-b041-992b42adfa94": "Quiz Questions \u2013 \u201cPerformance Award Exhibit A\u201d",
-        "984b9c54-de39-4643-8772-3c4962eea7e0": "Question 1",
         "2ef98597-17a8-4c7e-b00e-316d2fbe6225": "If a Comparison Group member undergoes a transaction that creates a new parent company whose sole assets are the equity interests in the original member, under what condition (and for how long) will the new parent replace the original member in the Comparison Group?",
-        "1610262b-82b9-48ad-a322-b98f544fdd93": "When calculating TSR, Beginning Price, or Ending Price, what specific type of corporate action during the Performance Period (or the 20-day averaging period) requires an \u201cequitable and proportionate adjustment\u201d to preserve award incentives?",
         "1f584f45-d633-4e9f-95d5-46d525c48e30": "According to the Notice of Grant, by what specific date must the Participant notify Apple\u2019s Stock Plan Group at peoplesupport@apple.com if they wish to decline the Award, and what consequence occurs if no notification is provided by that deadline?",
-        "b74a3ee5-5b86-40b8-99ea-6c4ae5809667": "Identify the three pieces of information that are intentionally left blank in the Notice of Grant and must be completed for each individual Award.",
-        "e0d9461b-e15f-40b9-9f60-b58876a3a301": "Question 1",
-        "8c2c368c-e444-4e9b-a3ae-c812b9ff4ffb": "According to the Award Agreement, under what specific circumstances (including maximum duration) is a Participant still considered to be in \u201cactive service\u201d during an approved personal leave of absence, and what happens to Award vesting once that period expires?",
         "62c4c10b-7783-4a13-8de7-e39d2ea21b4e": "Under this Award Agreement, on which day does vesting of the Award begin to be tolled when a Participant is on an approved personal leave of absence?",
         "9967a9b0-3248-446d-b597-2d5a1d2a8aac": "According to the Agreement, does the document guarantee continued employment or alter the Participant\u2019s at-will employment status?",
         "f6d35920-f271-42f8-95e8-100073c6f7a1": "Under the plan described, a participant is credited with Dividend Equivalent Rights when the Company pays an ordinary cash dividend on its Shares.",
         "003a099d-c708-4a8a-8739-ae130739c2d7": "(a) State the formula used to calculate the dollar amount of these Dividend Equivalent Rights.",
         "784b3cd3-800b-4557-8dce-5b7b1967563d": "According to Section 8(a), what specific consequence befalls any RSUs that remain unvested as of the Participant\u2019s Severance Date, regardless of the reason for termination?",
         "9920059f-ed65-4bab-8500-d4d13a381e12": "Under the special rule in Section 8(b), what two conditions must be satisfied for unvested RSUs to remain eligible for pro-rata vesting after the Participant\u2019s Termination of Service?",
-        "c6e577f1-c3d1-4601-b8ec-b76acfcbb680": "Quiz Questions (based solely on the supplied text)",
         "b90a3f2c-758c-4d89-ac89-f273c81287ba": "Retirement Vesting Calculation",
         "83cd9962-e637-4e8d-a26b-c43d232cfe70": "Under what two circumstances\u2014one related to criminal conduct and the other to information protection\u2014may the Company demand that a Participant return the Award, any related Shares, and any proceeds from their sale?",
-        "45547571-e5bb-41e0-8369-1f89afb9445b": "True or False: The Company\u2019s right to claw back the Award and related property is limited to breaches that occur only while the Participant is actively employed; once employment ends, the Company no longer has any claw-back rights.",
         "51c26d31-4dea-45fe-9b81-5072ca08e27e": "Under the terms of Section 9, what specific authorization does the Participant give the Company regarding Shares held at a brokerage firm if the Participant commits an act of theft, embezzlement, or fraud?",
-        "d7ff1cea-75c7-4328-8a99-df32c6451618": "According to Section 11, who bears the ultimate legal responsibility for all Tax-Related Items arising from the RSU Award, and what must the Participant do prior to the relevant taxable or withholding event?",
         "e42a3b96-8567-4b6e-bb71-fc8e856b49fa": "Under the terms described, what specific authorization does the Participant give to the Company and/or Employer regarding the methods that may be used to satisfy withholding obligations for Tax-Related Items?",
         "df15b472-d881-4bf3-accc-035479818166": "According to the passage, what obligation rests on the Participant if they are or become subject to taxation in multiple jurisdictions?",
         "9820acf3-966c-45f1-9ca0-9cc37af27459": "Under what specific condition must the Company satisfy withholding obligations for a Section 16 officer exclusively by withholding Shares otherwise deliverable (or an amount payable upon settlement of Dividend Equivalent Rights), unless the Board or Committee elects an alternative method?",
@@ -309,45 +201,34 @@
         "5957602c-7a33-4a38-822b-a38d72a4c97f": "According to the text, what specific purposes justify the Company (and its related entities) in transferring a Participant\u2019s Data among themselves or to third parties?",
         "864dd191-68c6-4d73-844e-39f919851510": "Where, exactly, must any written notice under the Award Agreement be addressed if it is intended for the Company?",
         "d7e511ea-9f76-47a8-8d18-f1b7b55be72f": "Under the Award Agreement, what specific method of delivery is required for any notice that the Company sends to a Participant who is no longer an employee, and which two postal features must be prepaid before the notice is deposited?",
-        "25f5c149-ee87-4479-8e9c-1f14aaef56e6": "According to the Agreement, which California county\u2019s state courts (and which corresponding federal district) have exclusive jurisdiction for litigating any dispute arising from the grant or the Award Agreement?",
         "27557fc6-2c29-44c2-9932-d4b66c6b3534": "According to the Award Agreement, in which specific California county must any litigation related to the grant be exclusively filed?",
-        "f5829b0f-657a-4f79-94a1-afb87b4b4442": "What is the stated purpose of the \u201cConstruction\u201d clause with respect to Section 409A of the Internal Revenue Code?",
         "75969ea0-8771-467e-a32b-b48b5a36e816": "According to Clause 23, what specific power does the Company expressly reserve regarding the Participant\u2019s continued involvement in the Plan, the RSUs, and any Shares obtained under the Plan?",
         "e134d5cf-2ae0-4940-b84f-cbfdbdf98165": "In addition to imposing extra requirements, what further action may the Company compel the Participant to take under Clause 23, and for what stated reasons?",
         "8bbde0e8-6a39-4f16-99ce-8cae6d8e9bc5": "According to the Notice of Grant, what specific action must the Participant take to decline the Award, and by what deadline must this action be completed to avoid being deemed to have accepted the Award?",
-        "56c7d26f-b945-4fbd-b8d6-ae2bfe16ebc4": "Identify the three distinct dates listed in the Notice of Grant and explain the significance of each date in relation to the Award.",
         "bdf4c5e7-47da-4871-b4a2-5744f0297506": "Under the plan described, if a Participant holds 1,000 target RSUs on the record date for an ordinary cash dividend of $0.50 per Share, how much cash will ultimately be paid to the Participant in respect of the related Dividend Equivalent Rights, assuming that only 60 % of the RSUs vest on the Vesting Date?",
         "64ae2643-3f51-46a6-859c-c2af9cc6d5ee": "According to Sections 6 and 7, what two specific actions are prohibited with respect to the Award, Dividend Equivalent Rights, or any Shares issued thereunder before the settlement date, and within what maximum time-frame after the Vesting Date must the Company deliver the Shares?",
         "26dc70b9-fadf-4063-be29-08a51e640e70": "According to Section 8(a), what specific consequence occurs to any RSUs that have not yet vested as of the Participant\u2019s Severance Date, regardless of the reason for termination?",
         "296eab74-a176-4384-ba36-3f4ab0e8ee41": "Under the exception described in Section 8(b), which three events must occur for unvested RSUs to avoid automatic forfeiture after the Participant\u2019s Termination of Service?",
-        "bd8f7fec-4597-4de8-a17e-9b9fabe16993": "Question 1",
         "288b78b9-930b-457a-93a5-cc757d57bd01": "Under the Award Agreement, what two conditions must be satisfied for a Participant\u2019s Termination of Service to qualify as \u201cRetirement,\u201d and what special timing restriction applies if the Retirement occurs before the first anniversary of the Award Date?",
         "15eb9792-6595-4e24-a772-f18ffc704003": "According to Section 9, what specific authorization does the Participant give the Company regarding any brokerage firm or third-party administrator that holds the Participant\u2019s Shares or other Plan-related amounts?",
         "35223dd0-abfb-4fd9-8bfc-9adbe05a9f6d": "In Section 10, what type of corporate event (giving one example cited in the text) triggers the Committee\u2019s duty to make adjustments under Section 11 of the Plan?",
         "fabe22b1-b70e-427c-8555-a644f43d74c3": "Under what circumstance does the document prohibit any adjustment to the number of outstanding RSUs, and what specific type of dividend is mentioned in this prohibition?",
-        "2ff0bf45-30f2-438e-90ed-c667b84f8b0c": "If a Participant who is subject to Section 16 of the Exchange Act incurs a tax-withholding event, what is the default method the Company must use to satisfy the withholding obligation, and which body has discretion to approve an alternative method?",
         "e77aba85-9770-4654-8cb5-b67044f68cbc": "If the Company withholds taxes at the maximum statutory rate and the result is an over-withholding, describe the two ways the excess amount can be returned to the Participant under the Plan.",
-        "db60b7f1-577e-48ae-ac7e-4bb732cf2550": "Under the Plan\u2019s data-privacy provisions, name any two categories of personal information the Company is authorized to transfer to third-party vendors anywhere in the world for Plan-administration purposes.",
         "a1b41d39-9422-47dc-87a6-c979e31d97ef": "Under the notice provisions in Section 14, what specific steps must the Company follow to deem a notice duly given if the Participant is no longer an employee?",
         "c054f6d1-0176-47f6-be6d-090ea296e0c7": "According to Section 15, which two documents\u2014other than the Award Agreement itself\u2014does the Participant expressly acknowledge having read and understood?",
         "68ab6e68-4d54-4e1c-a7d4-358d59368f59": "According to Section 17 of the Award Agreement, what specific legal status does a Participant hold with respect to the settlement of RSUs and the right to receive Shares?",
-        "98b809c3-6d50-465e-873d-e9e889ce53a5": "Under Section 20, which two court systems are expressly designated as the exclusive venues for litigating any dispute arising from this Award Agreement?",
         "77025101-2dcc-4bd8-8cac-b9b90502426f": "According to Exhibit 19.1, what is the title of the policy that appears on page A-2?",
         "a5d771f7-dfec-4565-84d7-3dae1fff5c06": "On which specific page of the document can the Insider Trading Policy be found?",
         "7a9640dc-f781-42a1-845d-8cf951d3eb1f": "According to the policy, how long must information be treated as \u201cnonpublic\u201d after Apple has released it to the general public, and what is the consequence of trading Apple securities within that window?",
         "92949c5d-4e38-4833-bd23-10759b4dfe39": "Name two categories of transactions involving Apple securities that are prohibited at all times under the policy, regardless of whether the person possesses material nonpublic information.",
         "0d471dbf-aea2-48ee-908f-7fc4d847596d": "According to the policy, how long must information be considered \u201cnonpublic\u201d after it has been released to the general public via a press release, SEC filing, or similar means?",
-        "034eef2a-a9a3-45b8-94df-511a17a390ac": "Explain why the policy states that \u201cmateriality\u201d can differ between companies, using Apple and another firm as the example.",
         "369b00a4-c0dd-4b9c-8cb7-31909fb87d4a": "According to the document, on what calendar date does the regularly scheduled restricted trading period begin for Apple\u2019s fiscal-second quarter, and when does the corresponding trading window reopen?",
         "bfc971ba-cdd5-484f-bb70-4b168c1fe5ee": "The document lists several types of transactions that are exempt from Apple\u2019s trading restrictions. Name any two of these permitted transactions that an employee could execute even during a closed trading window.",
         "fe023136-7f5c-4008-90e3-a7fa733b8a37": "What is the minimum advance notice (in business days) that a Designated Individual must give Apple\u2019s Insider Trading Compliance Officer when requesting pre-clearance for a transaction in Apple securities?",
-        "b55281d2-9c03-4fd0-892c-be2fa28289bf": "For a Section 16 reporting person, what is the maximum possible length of the \u201cCooling-Off Period\u201d (in days) that must be included in an approved Rule 10b5-1 Trading Plan before any trades can commence?",
         "538674f3-0fe4-4052-869e-668495a72e60": "Under Apple\u2019s Rule 10b5-1 Trading Plan requirements, which three specific elements must the written plan contain regarding the future transactions it will execute?",
-        "c578da76-6d0c-4918-b2ab-93627ecee1fa": "When may an individual modify an existing Trading Plan, and what two approvals are required before the modified plan can become effective?",
         "d74a3790-da5f-4b51-9b8a-57e21789fab4": "According to Exhibit 21.1, in which three countries does Apple Inc. maintain more than one incorporated subsidiary?",
         "a34d75b2-a6ff-4b4e-8a14-e4a1bccad972": "Exhibit 21.1 states that certain subsidiary names are omitted. Under the cited Regulation S-K provision, what is the stated reason for this omission?",
         "c15e93ce-b4fc-4af1-b4ab-cf3ec4206a52": "Which six Apple Inc. employee-benefit plans are specifically referenced in Exhibit 23.1 as being covered by Ernst & Young LLP\u2019s consent for incorporation by reference?",
-        "2cfa28d8-5f47-4412-977f-b2088e0c7ffe": "According to Exhibit 23.1, what is the exact date of the Ernst & Young LLP consent letter, and in what city was it signed?",
         "6ef57fa5-f788-48ff-95e0-88503601dcd6": "According to Timothy D. Cook\u2019s certification, what specific responsibility do he and the other certifying officers bear regarding the design of disclosure controls and procedures, and during which period must these controls ensure that material information is communicated to them?",
         "9a06328c-0f7e-410b-a06b-4409cff03947": "In the certification, what two categories of deficiencies or fraud must Cook and the other certifying officers disclose to Apple\u2019s auditors and audit committee based on their most recent evaluation of internal control over financial reporting?",
         "53303dc0-392c-4c21-8980-edf14c7e6eda": "According to Luca Maestri\u2019s certification, what specific responsibility do he and Apple\u2019s \u201cother certifying officer(s)\u201d have regarding disclosure controls and procedures during the period in which the Form 10-K is being prepared?",
@@ -553,17 +434,8 @@
         "50600a09-d592-4286-b6cb-cb9d386353e6": [
             "97f1d8bb18225c0de0ae4e4b3355e104"
         ],
-        "c4291318-ce0d-4a7d-bf7a-64ea3ff03736": [
-            "97f1d8bb18225c0de0ae4e4b3355e104"
-        ],
         "7c2ff614-c835-4bc7-9d14-a63111dc6a18": [
             "739a34e156983a3fb1848fbc44b71b31"
-        ],
-        "6f356852-f6ac-4e59-8fe9-30ac90d7af0b": [
-            "739a34e156983a3fb1848fbc44b71b31"
-        ],
-        "8ed69006-28f2-46a3-a06d-03185c337a10": [
-            "c6443b2febbbf92daee2becb259e3481"
         ],
         "3d7ceca8-b369-4321-b1fc-24a6deab87d0": [
             "c6443b2febbbf92daee2becb259e3481"
@@ -577,35 +449,14 @@
         "1e740152-8235-4fb1-b7b6-8c0021464b2c": [
             "2bec85dfc9a4b5bc62e2dc6dc374d575"
         ],
-        "15112b77-3583-4872-b102-84c549edf402": [
-            "2bec85dfc9a4b5bc62e2dc6dc374d575"
-        ],
-        "8bb697ae-8bb5-4977-b609-52f3dc29390d": [
-            "ec0f32f7496dc561216dd9485bcd1859"
-        ],
-        "1b99cf89-bcd6-4e38-8a30-571cce206e3e": [
-            "ec0f32f7496dc561216dd9485bcd1859"
-        ],
         "7c6758d8-b0ec-473f-ab32-7e0ba3f7d077": [
             "778f9cf18b222c17ba58808f123509fa"
         ],
         "fb3c12e7-57ff-4de6-9f98-83888cad495c": [
             "778f9cf18b222c17ba58808f123509fa"
         ],
-        "71b78601-e603-4a28-a89c-b85e9911db1b": [
-            "2e5293f7af8107a7ea7548aaf3177d61"
-        ],
-        "eb547baf-00c3-4993-a545-33509a422a1e": [
-            "2e5293f7af8107a7ea7548aaf3177d61"
-        ],
         "205142e2-ccde-414f-8097-b475434fa8b8": [
             "52c9d9900571bab2c38b91f87665882b"
-        ],
-        "febf908e-0087-434a-81ac-341f432f86dd": [
-            "52c9d9900571bab2c38b91f87665882b"
-        ],
-        "7ccc031e-db6e-4c46-ad05-4a997e14fed3": [
-            "cc5d5171a0bf0c45a9431494b75e7ccf"
         ],
         "c975003f-eef9-488c-8fac-022cb75fe02f": [
             "cc5d5171a0bf0c45a9431494b75e7ccf"
@@ -613,44 +464,17 @@
         "203c260e-4958-492b-867f-3d2e385b1ff3": [
             "cbd456e8872ef3cf94f1ee189d6ea3b0"
         ],
-        "4b979932-c4a0-4aab-8abc-f0b10ce3f7fd": [
-            "cbd456e8872ef3cf94f1ee189d6ea3b0"
-        ],
         "5057f0c4-1cd7-470e-984a-170d36c5c5d9": [
             "39eb851921d8916d058345b380e50ce6"
         ],
-        "50395312-4d64-4d17-90ea-908a0097956e": [
-            "39eb851921d8916d058345b380e50ce6"
-        ],
-        "fb78cee2-f8c6-4b2b-906c-63e753a13526": [
-            "b408e630ab7ff7800f65352ecb25991c"
-        ],
-        "9c52cbb1-45cb-49d8-bc97-79317054c3ea": [
-            "b408e630ab7ff7800f65352ecb25991c"
-        ],
         "51372d24-9f8a-4422-bbfd-1af2c71076da": [
             "a7e831acbe042bcddcab29cb0db6dca6"
-        ],
-        "c66c71a0-df9b-4f9f-bf8e-e1f8122cb6cc": [
-            "a7e831acbe042bcddcab29cb0db6dca6"
-        ],
-        "ecf384b6-2278-40ba-9917-d8ca08568e7e": [
-            "7032ce835969d5548465534dfbaf1b56"
         ],
         "ea9c6389-eac8-426e-8308-e3768ef4d2bb": [
             "7032ce835969d5548465534dfbaf1b56"
         ],
         "a8736557-e8fe-4963-b988-3fddcaa46c71": [
             "287ecde2d43c5ab0635e41dc3cf31592"
-        ],
-        "3a6913c1-88d9-4df7-8966-31e933f6b378": [
-            "287ecde2d43c5ab0635e41dc3cf31592"
-        ],
-        "3cc3d2b1-5078-4e6c-a61e-8da324e0c7f4": [
-            "b364f2206c11f12c4a29bf31b743aa10"
-        ],
-        "f21e818d-576d-4624-a28e-c89090e2209f": [
-            "b364f2206c11f12c4a29bf31b743aa10"
         ],
         "ab0752c2-76d2-4d74-9240-02de0b9d3589": [
             "d4843806cec99f2542ac9a4019aee3c8"
@@ -661,17 +485,11 @@
         "a703a715-62f8-4f31-96f6-78ac5f1ed0cc": [
             "55f1f6549fd5f8a9c91adc166e3d6ce9"
         ],
-        "d2ab57a6-65f7-48d1-8481-706e9485e05c": [
-            "55f1f6549fd5f8a9c91adc166e3d6ce9"
-        ],
         "020779e2-9637-43c2-a800-21c4dd991104": [
             "9de2ad6bb1796dadb442d9250af5cac4"
         ],
         "fdf9bbd1-ccab-45df-a508-237a5c6bd79d": [
             "9de2ad6bb1796dadb442d9250af5cac4"
-        ],
-        "9e24ff05-6e23-41c9-a49d-a7ac54b88af3": [
-            "bbfc961016665a8e72d93bc1d5675d79"
         ],
         "a45e0dd2-faa0-4195-b425-b1d0ed3405ef": [
             "bbfc961016665a8e72d93bc1d5675d79"
@@ -679,25 +497,13 @@
         "a98081de-0f37-4dba-a269-78d117777279": [
             "6fe001c6337c182996c781f3d55af2a4"
         ],
-        "1cd97937-4f6c-4ceb-9f82-229d9d4b2efa": [
-            "6fe001c6337c182996c781f3d55af2a4"
-        ],
         "0ea1e8ae-29a7-4079-af9b-a0a7111fdafe": [
             "31550ca9c5f2a52088c71970072f8854"
-        ],
-        "68c5d571-b43c-4df2-844e-d5b560e9fc37": [
-            "31550ca9c5f2a52088c71970072f8854"
-        ],
-        "f742652d-905e-4c06-9d60-f47112709f03": [
-            "fca2c5c9632b27a495adbaf69603258b"
         ],
         "cea02aa9-105a-4180-a314-283c24c6979a": [
             "fca2c5c9632b27a495adbaf69603258b"
         ],
         "1108e468-c7c1-42de-b856-64086bc3aa96": [
-            "3a5ebdef359f44d081e5bfacfd2ba057"
-        ],
-        "85e9651d-0ea0-4715-a88f-0e031067fd1f": [
             "3a5ebdef359f44d081e5bfacfd2ba057"
         ],
         "0adf0c44-b9cc-4d6f-a6b1-33c273472a08": [
@@ -707,9 +513,6 @@
             "3b844f172b36237a651fa0da4be6a809"
         ],
         "43cd1078-1acc-4953-8dac-95837734ae47": [
-            "84bf540ecbcdc70007514d6efd8ebb29"
-        ],
-        "b3f2613b-9e78-4ce0-8a0c-de2f7db0c349": [
             "84bf540ecbcdc70007514d6efd8ebb29"
         ],
         "caa4bc7d-92ac-4142-af59-2c22bf49b92c": [
@@ -727,23 +530,11 @@
         "a78854d1-a787-49d8-9146-ab31859f8e19": [
             "53c6589c934e5b0ae10348aeb79d6483"
         ],
-        "8ea9aa0a-829e-41b4-8829-852eebe2e7d8": [
-            "53c6589c934e5b0ae10348aeb79d6483"
-        ],
         "c21a8a0d-1c15-4772-813c-49df6c18c9a6": [
-            "97107bf2027e5d1ec3e8b92fbfecd875"
-        ],
-        "495f0814-fe4c-4360-a5cb-cacc4534b454": [
             "97107bf2027e5d1ec3e8b92fbfecd875"
         ],
         "0da3a9fe-f287-4736-b163-685d6c90cd0b": [
             "f82aa3a583b9b6eba9d674175ed0578c"
-        ],
-        "254d9758-b6d4-42f5-8ed5-096e0e7f420a": [
-            "f82aa3a583b9b6eba9d674175ed0578c"
-        ],
-        "ebb6ac9e-2119-46e1-a673-5ea87d484369": [
-            "39a920716c99b645d27c84e34a890292"
         ],
         "ceae5bbf-f5df-4078-a55a-a28422a21aa2": [
             "39a920716c99b645d27c84e34a890292"
@@ -753,9 +544,6 @@
         ],
         "949356a8-812c-4a5f-9bf2-cec7674de4e1": [
             "8209a117737592ef8f785aa72e3ea1f5"
-        ],
-        "a46fe9cb-63cf-44f4-9eae-e2f1c18fef11": [
-            "aa97d46a0853865671a792712203642f"
         ],
         "c1be9dab-9579-483d-968d-3531e0dc96b7": [
             "aa97d46a0853865671a792712203642f"
@@ -799,13 +587,7 @@
         "8ba49ba1-83ec-4d2b-bc40-f9d1afd33a46": [
             "e2d2b974e8ce874fc9a1853beac49ed7"
         ],
-        "05357eaf-ea95-4b78-a579-30e2093a6db8": [
-            "e2d2b974e8ce874fc9a1853beac49ed7"
-        ],
         "93e9b406-1dac-4815-a1e3-511fff7a6d49": [
-            "7286dfb68a1c467687d4b24b17399cae"
-        ],
-        "368ea02b-9528-412d-867e-2f9be476c3b0": [
             "7286dfb68a1c467687d4b24b17399cae"
         ],
         "f914d0f7-07e0-4140-aed4-3410db7c8cd2": [
@@ -817,19 +599,10 @@
         "8b8e5631-bb7e-46b0-8ada-63ccddddd246": [
             "0fa818ae803d106594f1834e98452277"
         ],
-        "1de2b1a4-e04a-4459-84af-05371ab071e8": [
-            "0fa818ae803d106594f1834e98452277"
-        ],
-        "19c9be30-9f84-4995-a721-3caeb8b26dbc": [
-            "2197073ca1cdccfee76aafdfcd09ed24"
-        ],
         "15172364-c63b-4dae-b519-c27a7190970b": [
             "2197073ca1cdccfee76aafdfcd09ed24"
         ],
         "129f2858-7ee1-4039-87af-d9373d2e3f29": [
-            "b69e3d2f0be7f4bd9168cdd28490b834"
-        ],
-        "67f54aa8-fca3-42f7-931e-67956e550e70": [
             "b69e3d2f0be7f4bd9168cdd28490b834"
         ],
         "49753118-9686-4a91-808d-e3ada94212ae": [
@@ -837,12 +610,6 @@
         ],
         "2ac77dab-cb84-4f5f-be10-00ee0660c7b5": [
             "31e9132d757cadc1d0ae60be93e50b6b"
-        ],
-        "452c1240-1574-4362-b29c-9f964fc8c5e7": [
-            "f12c4497c3e9b66eeca42821a2117c93"
-        ],
-        "eb7f96d0-98b7-4f62-9b93-d7f58064525f": [
-            "f12c4497c3e9b66eeca42821a2117c93"
         ],
         "089ff6e4-e788-4b3f-8c6c-283a328f04a0": [
             "a9dfa0df30cfa5b5154b89c309db528c"
@@ -856,9 +623,6 @@
         "c98bc7b7-318e-4192-925c-7f43fed17750": [
             "3e1d7569f404a970f824955f10e4b845"
         ],
-        "b943c09b-538f-4f36-b2ae-20b5f56e601a": [
-            "daf0f2d8cec57a8f7e39bf142475dd67"
-        ],
         "29f2b501-f0e6-4310-a5cb-f7bf167571e1": [
             "daf0f2d8cec57a8f7e39bf142475dd67"
         ],
@@ -868,16 +632,7 @@
         "527e7d14-4a5d-435b-9365-7d6ca2b68954": [
             "68654c68c01e08300de6562ecb8a11a7"
         ],
-        "22a27ea5-f6a7-4807-9887-a2aa85ac98ad": [
-            "018527740599c9efd8aa3cbd22680189"
-        ],
-        "30b34fab-1c53-47f3-844d-8f19d296bfba": [
-            "018527740599c9efd8aa3cbd22680189"
-        ],
         "d32a29c6-48a3-4fe9-bd28-86567b015a7b": [
-            "061ae53883278f701745eb2879e276bf"
-        ],
-        "18c6ea22-41b4-42bc-a70f-4d06bb0b5bd4": [
             "061ae53883278f701745eb2879e276bf"
         ],
         "d8236e10-c34e-4cab-a834-53b4fb588cca": [
@@ -889,47 +644,17 @@
         "39dfd884-141d-4fbf-b1ea-8e99512b1190": [
             "c5eedf0de9a8bb1aababb03896b58d81"
         ],
-        "0ee136d8-d997-48f4-82b5-732206ab0348": [
-            "c5eedf0de9a8bb1aababb03896b58d81"
-        ],
         "048e910a-fc47-4a12-8925-c6f1801f9f4d": [
             "1a6cdea45f46436fdb8642a929bd37be"
-        ],
-        "67acc0e6-8f63-4b09-a98e-48ed608b2bbe": [
-            "1a6cdea45f46436fdb8642a929bd37be"
-        ],
-        "f0a82279-d585-4615-a69b-82f8af4a463e": [
-            "8c4477bf2cca617126ff8c468d9f9a52"
         ],
         "dc5ced4e-e8ac-46ee-b30f-b441bcdcc5c2": [
             "8c4477bf2cca617126ff8c468d9f9a52"
         ],
-        "c051fdb8-8b45-41c0-97af-0a86662158d7": [
-            "4afc7368f8846f84eb602eb4c4c9d98d"
-        ],
         "dd913ed3-26bf-4037-abd6-3e4c6329a4e5": [
             "4afc7368f8846f84eb602eb4c4c9d98d"
         ],
-        "ac651bf7-38f0-4174-8ac8-d926c8619e4e": [
-            "d20cdcef0e9f257b4811138fdf2a9f77"
-        ],
         "be22b423-ff4c-4891-b016-4bf15814b98e": [
             "d20cdcef0e9f257b4811138fdf2a9f77"
-        ],
-        "757b0cb7-81fd-4d0a-ad58-823dcb796b4e": [
-            "abbbbd02a32a092254215049d2a9d956"
-        ],
-        "cc870f56-1ba4-490b-91e8-bebcbc7ad0ba": [
-            "abbbbd02a32a092254215049d2a9d956"
-        ],
-        "f935cdf5-8271-4056-a0c4-ee4a50509f93": [
-            "3345227a608d0ef080183b8f9ab86359"
-        ],
-        "7ec3f133-629c-428d-861b-11147e000299": [
-            "3345227a608d0ef080183b8f9ab86359"
-        ],
-        "22a05f45-649e-4d61-b5e3-fa73de5ea8a7": [
-            "009a6ab8e72dfd6ae1d03dbf348bdf11"
         ],
         "d3c5b7d7-264f-4337-8ba8-54b675bd816c": [
             "009a6ab8e72dfd6ae1d03dbf348bdf11"
@@ -940,9 +665,6 @@
         "ed636205-83ba-4cb7-a0c2-3aa772e22c6a": [
             "4b60312807e290a96aefa28bb21a9116"
         ],
-        "dd5d720e-9c4c-483b-9e7e-05fe9e2ae832": [
-            "fe1b752a57632db5dc130b1172c1a1eb"
-        ],
         "7fdd1c7c-24c3-4737-8a3d-fd1da8a7ef28": [
             "fe1b752a57632db5dc130b1172c1a1eb"
         ],
@@ -952,14 +674,8 @@
         "11716c11-fb61-4862-be88-228e43fe2149": [
             "05e46d54d9d975fe70e850d17238ef50"
         ],
-        "94d7d6b7-8c0f-412b-932a-4a2daabad409": [
-            "531da0ba0accbf4862d4c8fd46d96216"
-        ],
         "b4393f5b-19a2-4e48-9e57-157d70502e4a": [
             "531da0ba0accbf4862d4c8fd46d96216"
-        ],
-        "b7c0d8f7-13fd-4851-8957-6a86f69c9177": [
-            "262694babc44aeae3fb8a267dd5e2d3c"
         ],
         "b7abbe1e-47b9-42d0-9a7f-0758e9bb8b25": [
             "262694babc44aeae3fb8a267dd5e2d3c"
@@ -969,9 +685,6 @@
         ],
         "ecbdc5b0-18f0-484b-b3b1-cf0b2a89d492": [
             "e3d700f4dd0891c673c53798c5c5ac40"
-        ],
-        "d9055525-dba6-4f5b-8494-6f23d3edd7eb": [
-            "a221c932d01fdd888c4f6ffa0efb3b53"
         ],
         "089ce341-3e35-4691-9c90-9323c155cda8": [
             "a221c932d01fdd888c4f6ffa0efb3b53"
@@ -985,17 +698,11 @@
         "c85d5062-3894-4f6c-9fdc-ecfabf58af06": [
             "f8c27e0722b3285894010e612fe41403"
         ],
-        "31fdb005-1175-4bce-b847-15963a67576a": [
-            "f8c27e0722b3285894010e612fe41403"
-        ],
         "5f657ce3-55e7-4f17-8933-b997f323725f": [
             "db9f91c7a71fbf4b263f6c2eec6b6579"
         ],
         "45c69e71-eba6-43ea-85ab-17ca59c1c928": [
             "db9f91c7a71fbf4b263f6c2eec6b6579"
-        ],
-        "cf38a6c5-143a-4c07-b589-bf1c7126d1f0": [
-            "a7bcac084eb31c860fb7b149a9bd80a3"
         ],
         "9643ac5f-f6fe-4a86-80e4-6ddf7b160cee": [
             "a7bcac084eb31c860fb7b149a9bd80a3"
@@ -1015,9 +722,6 @@
         "37acd4ac-8002-4319-aceb-98bedcf69f89": [
             "23d9ef106882f5026a1a9574f64b49f1"
         ],
-        "c92fad21-dafc-4f97-a884-c1018dbc6427": [
-            "23d9ef106882f5026a1a9574f64b49f1"
-        ],
         "0d909cee-2d5d-49b9-9d45-6a7bb67e3a4a": [
             "9e53b37ae4efdf83596905e1116697c9"
         ],
@@ -1027,41 +731,20 @@
         "bdae330a-b88a-436d-b7f0-53e06b70214f": [
             "20d24ba8a7d0188c2db2cb4b2d97d46e"
         ],
-        "d82f3a9f-816a-4e66-ab54-d12b9ac06f07": [
-            "20d24ba8a7d0188c2db2cb4b2d97d46e"
-        ],
         "25499db3-61b7-4831-b1b2-eed7787e3958": [
             "31819e3dcf4d8b44e328c5afbe9b307d"
         ],
         "93bd1a43-888c-4702-8a36-c6738d0eed3c": [
             "31819e3dcf4d8b44e328c5afbe9b307d"
         ],
-        "31cea712-7408-4135-8a42-8fa90c5b1557": [
-            "3130f0d775329566a4b346b4545f83e4"
-        ],
         "b06a4931-a3aa-46f0-82fd-7c4125f76468": [
             "3130f0d775329566a4b346b4545f83e4"
-        ],
-        "99baa0a0-b758-4c90-aff8-03aab04c560e": [
-            "bf0cbb2981da5682747b9fb4ad6d11ed"
-        ],
-        "3e99b775-8f05-4eb6-ab1c-27ef00c38299": [
-            "bf0cbb2981da5682747b9fb4ad6d11ed"
-        ],
-        "eb3adc15-f8d7-4dfe-be8d-e0e799b8672e": [
-            "bacd39eb33c7e613cbcc0cf94698d41f"
         ],
         "cc991c45-7e60-49a8-9e67-73ba0ab29750": [
             "bacd39eb33c7e613cbcc0cf94698d41f"
         ],
-        "befb1802-83e0-4efd-8cde-a571e5c78b2a": [
-            "56ea02fc7c120388918fc34342018c58"
-        ],
         "37563332-3545-4e53-940e-077ae9abf147": [
             "56ea02fc7c120388918fc34342018c58"
-        ],
-        "9c5a8a93-e328-4f1b-a9c8-669e00bcfd40": [
-            "6e3e70d72231afffe661af9410443667"
         ],
         "04e0836e-7e9f-4888-85c4-8da300383533": [
             "6e3e70d72231afffe661af9410443667"
@@ -1079,9 +762,6 @@
             "f096fda8632959dfcfe7aade770cb9f5"
         ],
         "7604dd96-f766-4e9c-ba5a-05a32ed809e2": [
-            "5649f1426a3e263a5799d627fb459436"
-        ],
-        "d378960e-acd3-4864-a702-be2ccca491e8": [
             "5649f1426a3e263a5799d627fb459436"
         ],
         "8d1a334f-adca-4da7-9ba2-b2e86e5d9b38": [
@@ -1108,14 +788,8 @@
         "41b3501f-1df1-435d-8879-cdd03d2f3371": [
             "be94d7ea07c2de414844c631790d3801"
         ],
-        "8cd6a255-9706-49ca-b6cc-6e471edc7939": [
-            "bda21666a487e20b4ac6911af1c8f8bd"
-        ],
         "169bd723-5394-43b6-919d-03b5848023fb": [
             "bda21666a487e20b4ac6911af1c8f8bd"
-        ],
-        "6cfa7d28-ea73-46ef-b519-d3f763471278": [
-            "26e91dcfdb5087cb344d7a36ba20b500"
         ],
         "13f61915-de27-42b1-81dd-a115d0f17387": [
             "26e91dcfdb5087cb344d7a36ba20b500"
@@ -1129,12 +803,6 @@
         "36276998-2d45-4a1d-b3c6-ef40db4db293": [
             "682d44f1acfee96537829e5f6843af78"
         ],
-        "537e0d97-3ef5-4a09-a2ec-2e6c203f6f89": [
-            "682d44f1acfee96537829e5f6843af78"
-        ],
-        "24c94955-c405-4d4c-9443-86ee6c204e21": [
-            "21c5634691dba16ae01789e6a76d15b6"
-        ],
         "cc66dc8e-6bb6-45a4-9ec6-7a0169466986": [
             "21c5634691dba16ae01789e6a76d15b6"
         ],
@@ -1147,17 +815,8 @@
         "9f5b19a5-946b-4015-bcde-d3bc3f56da73": [
             "f1dd08d8b2e4559c3b1e1a356a4cb19b"
         ],
-        "7cc5ea8d-a470-4e0b-b059-fff53de3b52b": [
-            "f1dd08d8b2e4559c3b1e1a356a4cb19b"
-        ],
-        "6fa9956e-dcb1-4664-8586-425ecf4eb537": [
-            "6140ab9ab058eb844d2bc74b4766f9bc"
-        ],
         "54f303c2-507b-4b15-89bd-4d23b27216cc": [
             "6140ab9ab058eb844d2bc74b4766f9bc"
-        ],
-        "30a2bf74-3bc6-41e7-940a-ddab2dd3906e": [
-            "035122add73656f3771f4bd953ffc116"
         ],
         "880fb451-12ef-401a-bf3d-751a40383bf3": [
             "035122add73656f3771f4bd953ffc116"
@@ -1168,22 +827,13 @@
         "62976682-83dd-41fe-aba9-e9174daed9fb": [
             "21f22d36da3545d206f49f1fb6c8efc6"
         ],
-        "69ab7ebe-440f-4640-a374-4a635a1d6d31": [
-            "0068ffac5f0551e4f68e7d0073234e1b"
-        ],
         "ed0bfaaf-17f8-442a-9a34-c301a381afe6": [
             "0068ffac5f0551e4f68e7d0073234e1b"
-        ],
-        "bca187c6-26f9-4f9a-8548-27e6b9fec383": [
-            "0a73be26a656640c6aa213a1d556d194"
         ],
         "70dcc773-cca0-46f3-b58d-7d8756b79e4c": [
             "0a73be26a656640c6aa213a1d556d194"
         ],
         "8ce346d4-4f2b-4b93-9511-168885d51c5e": [
-            "33ba54a1ec19c705e25bfff1ba7e2412"
-        ],
-        "b1904b9c-fc7f-474c-a3e6-c6b5ff0b81b1": [
             "33ba54a1ec19c705e25bfff1ba7e2412"
         ],
         "3aa50dcd-5102-4a17-9a6f-a7a347d583a9": [
@@ -1195,17 +845,8 @@
         "dd6cb9f8-c428-4180-b562-4c0180271641": [
             "23b617e6070fb08e027bc9c0d7fc87e1"
         ],
-        "7f74e112-ab0f-4cf2-b0e9-e3901292992e": [
-            "23b617e6070fb08e027bc9c0d7fc87e1"
-        ],
         "6006e3cc-ef4d-46b4-84fb-25c5f7d67eac": [
             "1f2cb36e169674706004b8295a76ac60"
-        ],
-        "ca267648-c242-49be-bdca-aace589aa43a": [
-            "1f2cb36e169674706004b8295a76ac60"
-        ],
-        "20e3086c-90b6-496f-8ada-27436c5f02dc": [
-            "71e955ea2a520232682eac245b042878"
         ],
         "2d12aa49-7584-405c-9adf-a8b5d6714615": [
             "71e955ea2a520232682eac245b042878"
@@ -1213,13 +854,7 @@
         "1d328021-067e-4d90-bb15-2c1256e544e1": [
             "c60025293897c094449e1f3e05ac2078"
         ],
-        "b7a22b46-cf83-469f-9f43-c0d701d4dcf7": [
-            "c60025293897c094449e1f3e05ac2078"
-        ],
         "7430b077-e833-4a1e-8551-36165402a884": [
-            "62618589d4ed55f3055c06aae79e8b95"
-        ],
-        "a378185d-59d2-451f-a770-448a49b2a0ad": [
             "62618589d4ed55f3055c06aae79e8b95"
         ],
         "ad9740b7-1136-4c3e-9d97-3461e55d88ec": [
@@ -1228,14 +863,8 @@
         "2be91837-8bd2-42c9-a108-65d8911775c5": [
             "293604562fbcfc4f13d8850641307153"
         ],
-        "fc378f76-49f1-4772-a52d-e69af18267ac": [
-            "922ca90a1c8157467927013e20322995"
-        ],
         "629a0ceb-918c-406a-a3d2-0838e60de2a8": [
             "922ca90a1c8157467927013e20322995"
-        ],
-        "0658723c-32e5-4366-a518-0a350287e3c6": [
-            "0a8ffc31b62d7c5c081b5634afc7ae4d"
         ],
         "25eb9f82-ceb5-409d-b29a-fe50b8668426": [
             "0a8ffc31b62d7c5c081b5634afc7ae4d"
@@ -1248,15 +877,6 @@
         ],
         "6f02ec3f-0e99-49a4-ade7-e6b1ee14aac7": [
             "b27c7f4ea0ac30d44a8ab3ffcd08c288"
-        ],
-        "5926b5ba-b49a-4b9e-8f56-813ccd078364": [
-            "b27c7f4ea0ac30d44a8ab3ffcd08c288"
-        ],
-        "533863e8-3c62-4a7b-a45c-978174e39f15": [
-            "7f20e1b466281fb94bdb911f8c745460"
-        ],
-        "9b19deb1-090f-4d1e-9dea-991450826bfa": [
-            "7f20e1b466281fb94bdb911f8c745460"
         ],
         "ab591aab-eb4e-49fc-9f58-29ed3a90d257": [
             "a590e74362702473463c07fee208ed5b"
@@ -1279,17 +899,8 @@
         "eb386d7c-89df-4a84-834e-a1ff0faaec0e": [
             "12824bf330a82ab93c499a4de9258b92"
         ],
-        "1693025c-22d9-4ad1-91ca-e8e5a6002486": [
-            "12824bf330a82ab93c499a4de9258b92"
-        ],
-        "3b20469b-d91b-4b34-85a9-91313c66b468": [
-            "ab5faf81508701d775ef248370d99145"
-        ],
         "418d413b-9d99-41be-8ab8-5f35a3538ced": [
             "ab5faf81508701d775ef248370d99145"
-        ],
-        "7d15625a-9dc7-4b0b-9be1-cc924cd4e5f7": [
-            "8addc09701ed4b5310983322e04ad199"
         ],
         "d530c7d8-85ea-4eca-ab8c-d7fbcf26ea3a": [
             "8addc09701ed4b5310983322e04ad199"
@@ -1299,9 +910,6 @@
         ],
         "f8132a63-f218-42e1-a2c6-543aa5d891ff": [
             "2664ca29d3ce9b31fed841448bd28d0d"
-        ],
-        "13412ad9-a811-46bc-ae09-935512813d88": [
-            "7631f007c880863f122ef0ed43921f70"
         ],
         "82805744-663c-43f1-ad57-2553c2045916": [
             "7631f007c880863f122ef0ed43921f70"
@@ -1315,29 +923,17 @@
         "c10578be-923a-44c8-b718-94e4dd16be8b": [
             "efc1e750b5ef541b181317fe2b99c62a"
         ],
-        "d8cb3c4b-e954-4440-9448-956bf5da1a56": [
-            "efc1e750b5ef541b181317fe2b99c62a"
-        ],
         "f5d75f68-5733-48dd-b72f-52b93e6d47bd": [
             "eaae0a3036eca18e2fc3841db91fe7c7"
         ],
         "438cd603-5140-467f-8970-623aa94b4214": [
             "eaae0a3036eca18e2fc3841db91fe7c7"
         ],
-        "d1176f5c-458b-4ebd-83e7-de8f1c2a043b": [
-            "a66a8ee08cca74380785d794750dbc12"
-        ],
-        "991b7f89-487b-4a3c-98c7-b40f42eedb22": [
-            "a66a8ee08cca74380785d794750dbc12"
-        ],
         "3daebd7a-3c1c-4222-a9ad-3ee79d4c2efa": [
             "06aa5f9023a857c65962803939f5a450"
         ],
         "d5565d32-a36b-4366-bbf0-802a842e1313": [
             "06aa5f9023a857c65962803939f5a450"
-        ],
-        "6db29d6d-d96b-40f6-88d2-711d6f8ddd28": [
-            "0017b2cd2f41432bae77cc41d7b51806"
         ],
         "1e6e9a5f-c19a-46ab-a323-9ef2f993d8f5": [
             "0017b2cd2f41432bae77cc41d7b51806"
@@ -1348,9 +944,6 @@
         "2d3aa51f-281a-4ea4-ab00-1fa505e93412": [
             "3a87af0519726db90792145e39090a29"
         ],
-        "b52f5ffc-adae-4a85-92d5-5f9a95f0ad37": [
-            "1c3d6a0cba24346ee4ae3922ade67b30"
-        ],
         "d0b309ed-574e-4d7a-a0cf-d531022fbc91": [
             "1c3d6a0cba24346ee4ae3922ade67b30"
         ],
@@ -1359,12 +952,6 @@
         ],
         "8bf6ea13-e661-4f99-8080-21f533af299a": [
             "6213717c99064d60473840d94949948c"
-        ],
-        "9434624e-aab5-484c-be16-9fabed28068b": [
-            "e3570b7f21a7615b8211096624103727"
-        ],
-        "ad51309a-f422-462e-8a05-84606dd6351c": [
-            "e3570b7f21a7615b8211096624103727"
         ],
         "0e29e799-9344-4df9-8e8e-905e47a55b71": [
             "e1418ca7594d0db032c5366275ec512c"
@@ -1387,32 +974,11 @@
         "8371999e-0561-4643-a873-2c80cf20bddd": [
             "ad8af11531ae4f157da355807b1af3c3"
         ],
-        "136a8929-d137-4e56-b3bb-319892de1ccc": [
-            "ad8af11531ae4f157da355807b1af3c3"
-        ],
-        "5f9d29d3-f634-4139-b041-992b42adfa94": [
-            "4eeb27e9e68b9c8b3df02017ee497a66"
-        ],
-        "984b9c54-de39-4643-8772-3c4962eea7e0": [
-            "4eeb27e9e68b9c8b3df02017ee497a66"
-        ],
         "2ef98597-17a8-4c7e-b00e-316d2fbe6225": [
-            "b93a63e6f84115447a56cf739240f2b7"
-        ],
-        "1610262b-82b9-48ad-a322-b98f544fdd93": [
             "b93a63e6f84115447a56cf739240f2b7"
         ],
         "1f584f45-d633-4e9f-95d5-46d525c48e30": [
             "ff3eb69f6ad7c58d5cb8707c21546a1a"
-        ],
-        "b74a3ee5-5b86-40b8-99ea-6c4ae5809667": [
-            "ff3eb69f6ad7c58d5cb8707c21546a1a"
-        ],
-        "e0d9461b-e15f-40b9-9f60-b58876a3a301": [
-            "2ec05fbfd4c1bf52f0be684ec9afad44"
-        ],
-        "8c2c368c-e444-4e9b-a3ae-c812b9ff4ffb": [
-            "2ec05fbfd4c1bf52f0be684ec9afad44"
         ],
         "62c4c10b-7783-4a13-8de7-e39d2ea21b4e": [
             "412aa5c749907e38ff637bbe231f2704"
@@ -1432,22 +998,13 @@
         "9920059f-ed65-4bab-8500-d4d13a381e12": [
             "192fe8c7755bc3e86459545981d974a4"
         ],
-        "c6e577f1-c3d1-4601-b8ec-b76acfcbb680": [
-            "1f835ec2a074728d0955b6009563f756"
-        ],
         "b90a3f2c-758c-4d89-ac89-f273c81287ba": [
             "1f835ec2a074728d0955b6009563f756"
         ],
         "83cd9962-e637-4e8d-a26b-c43d232cfe70": [
             "a220a5ba1387c89ec079d0b1b8dc0ed7"
         ],
-        "45547571-e5bb-41e0-8369-1f89afb9445b": [
-            "a220a5ba1387c89ec079d0b1b8dc0ed7"
-        ],
         "51c26d31-4dea-45fe-9b81-5072ca08e27e": [
-            "5ffbdc2d09a160ddabc3d70958fcb3af"
-        ],
-        "d7ff1cea-75c7-4328-8a99-df32c6451618": [
             "5ffbdc2d09a160ddabc3d70958fcb3af"
         ],
         "e42a3b96-8567-4b6e-bb71-fc8e856b49fa": [
@@ -1471,13 +1028,7 @@
         "d7e511ea-9f76-47a8-8d18-f1b7b55be72f": [
             "c5e816e44783096f6153fc6e46330fe0"
         ],
-        "25f5c149-ee87-4479-8e9c-1f14aaef56e6": [
-            "c5e816e44783096f6153fc6e46330fe0"
-        ],
         "27557fc6-2c29-44c2-9932-d4b66c6b3534": [
-            "04c723d2d3cb9867b97a4b2b0dbd6d0d"
-        ],
-        "f5829b0f-657a-4f79-94a1-afb87b4b4442": [
             "04c723d2d3cb9867b97a4b2b0dbd6d0d"
         ],
         "75969ea0-8771-467e-a32b-b48b5a36e816": [
@@ -1487,9 +1038,6 @@
             "842d9399c21c37ae3ca0fe85c0404b54"
         ],
         "8bbde0e8-6a39-4f16-99ce-8cae6d8e9bc5": [
-            "f2278dca03ab813fdffa832a5b933e47"
-        ],
-        "56c7d26f-b945-4fbd-b8d6-ae2bfe16ebc4": [
             "f2278dca03ab813fdffa832a5b933e47"
         ],
         "bdf4c5e7-47da-4871-b4a2-5744f0297506": [
@@ -1504,9 +1052,6 @@
         "296eab74-a176-4384-ba36-3f4ab0e8ee41": [
             "239d301564bd7466451c31efe213feb6"
         ],
-        "bd8f7fec-4597-4de8-a17e-9b9fabe16993": [
-            "91361c03db8d001fb114c312d2ec3f40"
-        ],
         "288b78b9-930b-457a-93a5-cc757d57bd01": [
             "91361c03db8d001fb114c312d2ec3f40"
         ],
@@ -1519,13 +1064,7 @@
         "fabe22b1-b70e-427c-8555-a644f43d74c3": [
             "4255f9a42fcf419ee953a49da823573e"
         ],
-        "2ff0bf45-30f2-438e-90ed-c667b84f8b0c": [
-            "4255f9a42fcf419ee953a49da823573e"
-        ],
         "e77aba85-9770-4654-8cb5-b67044f68cbc": [
-            "503a7019705b348850246d9b2d8494e3"
-        ],
-        "db60b7f1-577e-48ae-ac7e-4bb732cf2550": [
             "503a7019705b348850246d9b2d8494e3"
         ],
         "a1b41d39-9422-47dc-87a6-c979e31d97ef": [
@@ -1535,9 +1074,6 @@
             "1982e3dfbb59f81e0a63cddca6b9d353"
         ],
         "68ab6e68-4d54-4e1c-a7d4-358d59368f59": [
-            "51c47f515f67b44a298de97fdbb3404b"
-        ],
-        "98b809c3-6d50-465e-873d-e9e889ce53a5": [
             "51c47f515f67b44a298de97fdbb3404b"
         ],
         "77025101-2dcc-4bd8-8cac-b9b90502426f": [
@@ -1555,9 +1091,6 @@
         "0d471dbf-aea2-48ee-908f-7fc4d847596d": [
             "47ae53a5e8f8d697527649840ba3144b"
         ],
-        "034eef2a-a9a3-45b8-94df-511a17a390ac": [
-            "47ae53a5e8f8d697527649840ba3144b"
-        ],
         "369b00a4-c0dd-4b9c-8cb7-31909fb87d4a": [
             "427880fd354ecc2e66f233cc943f7be6"
         ],
@@ -1567,13 +1100,7 @@
         "fe023136-7f5c-4008-90e3-a7fa733b8a37": [
             "6dc0481ccb8a395d1857f0d1c25e9186"
         ],
-        "b55281d2-9c03-4fd0-892c-be2fa28289bf": [
-            "6dc0481ccb8a395d1857f0d1c25e9186"
-        ],
         "538674f3-0fe4-4052-869e-668495a72e60": [
-            "7092ab680bc0c861314a44ef163f16c4"
-        ],
-        "c578da76-6d0c-4918-b2ab-93627ecee1fa": [
             "7092ab680bc0c861314a44ef163f16c4"
         ],
         "d74a3790-da5f-4b51-9b8a-57e21789fab4": [
@@ -1583,9 +1110,6 @@
             "a7a558641e7f7ff3914e031987bbeb0d"
         ],
         "c15e93ce-b4fc-4af1-b4ab-cf3ec4206a52": [
-            "e2dd1bc49d50a3e47779dc8923794783"
-        ],
-        "2cfa28d8-5f47-4412-977f-b2088e0c7ffe": [
             "e2dd1bc49d50a3e47779dc8923794783"
         ],
         "6ef57fa5-f788-48ff-95e0-88503601dcd6": [

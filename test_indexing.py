@@ -1,11 +1,12 @@
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from llama_index.core.schema import TextNode
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 import chromadb
 import os
 
-from vector_database import create_vector_db, load_vector_db
+from vector_database import create_vector_db, load_raw_nodes, load_vector_db
 
 
 def test_vector_db():
@@ -55,6 +56,34 @@ def test_vector_db():
     print(f"Query response: {str(response[0])[:200]}... ✓")
 
     print("\n All tests passed.")
+
+    # --- Test 6: load_raw_nodes basic reconstruction ---
+    print("\n=== Test 6: Loading nodes from Chroma ===")
+    nodes = load_raw_nodes(DB_PATH, COLLECTION_NAME)
+
+    assert nodes is not None, "Nodes list is None."
+    assert len(nodes) > 0, "No nodes reconstructed."
+    assert isinstance(nodes[0], TextNode), "Returned objects are not TextNode."
+    assert nodes[0].text is not None and len(nodes[0].text) > 0, "Node text is empty."
+
+    print(f"Loaded {len(nodes)} nodes. ✓")
+
+    # --- Test 7: ID consistency check ---
+    print("\n=== Test 7: ID consistency check ===")
+
+    # Get IDs directly from Chroma
+    chroma_ids = set(collection.get(include=[])["ids"])
+
+    # Get IDs from reconstructed nodes
+    node_ids = set(n.id_ for n in nodes)
+
+    assert chroma_ids == node_ids, (
+        "Mismatch between Chroma IDs and reconstructed node IDs.\n"
+        f"Missing in nodes: {chroma_ids - node_ids}\n"
+        f"Extra in nodes: {node_ids - chroma_ids}"
+    )
+
+    print("Node IDs perfectly match Chroma IDs. ")
 
 
 if __name__ == "__main__":

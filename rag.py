@@ -10,15 +10,9 @@ import chromadb
 import os
 
 from vector_database import load_vector_db
+from generation import generation_model
 
 load_dotenv()
-
-def generation_model():
-    groq_api_key = os.getenv("GROQ_API_KEY")
-
-    llm = Groq(model="moonshotai/kimi-k2-instruct", api_key=groq_api_key)
-
-    return llm
 
 if __name__ == "__main__":
     index = load_vector_db()

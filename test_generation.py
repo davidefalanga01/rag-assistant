@@ -1,1 +1,0 @@
-'''Evaluate the generation capabilities of the RAG assistant on a set of test queries from given contexts.'''
