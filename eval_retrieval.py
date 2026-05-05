@@ -2,6 +2,7 @@
 from llama_index.core.evaluation import RetrieverEvaluator
 from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 
+import pandas as pd
 from vector_database import load_vector_db
 
 def run_retrieval_eval(index, qa_dataset, SIMILARITY_TOP_K=10):
@@ -25,7 +26,23 @@ def run_retrieval_eval(index, qa_dataset, SIMILARITY_TOP_K=10):
         )
         
         print(eval_result)
-        break
+        results.append(eval_result.metric_vals_dict)
+
+    full_df = pd.DataFrame(results)
+
+    columns = {
+        "retrievers": ['top-10 eval'],
+        **{k: [full_df[k].mean()] for k in metrics},
+    }
+
+    metric_df = pd.DataFrame(columns)
+
+    print("\nAverage Metrics:")
+    print(metric_df)
+
+    metric_df.to_csv("data/retrieval_eval_results.csv", index=False)
+    full_df.to_csv("data/retrieval_eval_results_per_query.csv", index=False)
+        
 
 def main():
     print("Loading vector database...")
