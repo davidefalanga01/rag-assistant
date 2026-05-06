@@ -1,6 +1,7 @@
 '''Evaluate the Generation capabilities of the RAG assistant on a set of test queries.'''
 import os
 
+from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.evaluation import (
@@ -11,11 +12,14 @@ from llama_index.core.evaluation import (
 )
 
 import json
-from vector_database import load_vector_db
+from vector_database import build_hybrid_retriever, load_vector_db
 from generation import generation_model
 from filter_gt import build_smaller_eval_dataset
 
 SHORT_EVAL = True  # Set to True to run a shorter evaluation with fewer queries
+EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+DB_PATH = "./chroma_db"
+COLLECTION_NAME = "rag_collection"
 
 llm = generation_model()
 llm_gt = generation_model("big") 
@@ -76,10 +80,21 @@ def run_generation_eval(index, qa_dataset, output_file=None):
     print("Running generation evaluation...")
 
     # Query engine (RAG pipeline)
-    query_engine = index.as_query_engine(similarity_top_k=10, llm=llm)
+    hybrid_retriever = build_hybrid_retriever(
+        index=index,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
+        dense_top_k=20,
+        sparse_top_k=20,
+        fusion_top_k=10,
+    )
+    query_engine = RetrieverQueryEngine.from_args(
+        retriever=hybrid_retriever,
+        llm=llm,
+    )
 
     # Embedding model for semantic similarity evaluation
-    embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embed_model = HuggingFaceEmbedding(model_name=EMBED_MODEL)
 
     # Evaluators
     faithfulness_evaluator = FaithfulnessEvaluator(llm=llm_gt)
@@ -193,9 +208,9 @@ def run_generation_eval(index, qa_dataset, output_file=None):
 def main():
     print("Loading vector database...")
     index = load_vector_db(
-        embed_model="sentence-transformers/all-MiniLM-L6-v2",
-        db_path="./chroma_db",
-        collection_name="rag_collection",
+        embed_model=EMBED_MODEL,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
     )
 
     print("Loading cleaned evaluation dataset...")

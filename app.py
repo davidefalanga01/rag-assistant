@@ -1,11 +1,22 @@
 import streamlit as st
-from vector_database import load_vector_db
+from llama_index.core.query_engine import RetrieverQueryEngine
+
+from vector_database import build_hybrid_retriever, load_vector_db
 from generation import generation_model
 
 # 1. Load your LlamaIndex data
 index = load_vector_db()
 llm = generation_model()
-query_engine = index.as_query_engine(llm=llm)
+hybrid_retriever = build_hybrid_retriever(
+    index=index,
+    dense_top_k=20,
+    sparse_top_k=20,
+    fusion_top_k=10,
+)
+query_engine = RetrieverQueryEngine.from_args(
+    retriever=hybrid_retriever,
+    llm=llm,
+)
 
 # 2. Build the UI
 st.title("My RAG Search Engine 🔍")

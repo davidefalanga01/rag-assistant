@@ -3,14 +3,25 @@ from llama_index.core.evaluation import RetrieverEvaluator
 from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 
 import pandas as pd
-from vector_database import load_vector_db
+from vector_database import build_hybrid_retriever, load_vector_db
+
+EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+DB_PATH = "./chroma_db"
+COLLECTION_NAME = "rag_collection"
 
 def run_retrieval_eval(index, qa_dataset, SIMILARITY_TOP_K=10):
     print("Running retrieval evaluation...")
 
     metrics = ["hit_rate", "mrr", "precision", "recall", "ap", "ndcg"]
 
-    retriever = index.as_retriever(similarity_top_k=SIMILARITY_TOP_K)
+    retriever = build_hybrid_retriever(
+        index=index,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
+        dense_top_k=20,
+        sparse_top_k=20,
+        fusion_top_k=SIMILARITY_TOP_K,
+    )
     retriever_evaluator = RetrieverEvaluator.from_metric_names(
         metric_names=metrics,
         retriever=retriever,
@@ -31,7 +42,7 @@ def run_retrieval_eval(index, qa_dataset, SIMILARITY_TOP_K=10):
     full_df = pd.DataFrame(results)
 
     columns = {
-        "retrievers": ['top-10 eval'],
+        "retrievers": ['hybrid top-10 eval'],
         **{k: [full_df[k].mean()] for k in metrics},
     }
 
@@ -47,9 +58,9 @@ def run_retrieval_eval(index, qa_dataset, SIMILARITY_TOP_K=10):
 def main():
     print("Loading vector database...")
     index = load_vector_db(
-        embed_model="sentence-transformers/all-MiniLM-L6-v2",
-        db_path="./chroma_db",
-        collection_name="rag_collection",
+        embed_model=EMBED_MODEL,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
     )
 
     print("Loading cleaned evaluation dataset...")

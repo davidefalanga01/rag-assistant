@@ -4,6 +4,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.llms.groq import Groq
 from llama_index.core.llms import ChatMessage
+from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.postprocessor.flag_embedding_reranker import FlagEmbeddingReranker
 from llama_index.core.postprocessor import SimilarityPostprocessor
 
@@ -12,7 +13,7 @@ from dotenv import load_dotenv
 import chromadb
 import os
 
-from vector_database import load_vector_db
+from vector_database import build_hybrid_retriever, load_vector_db
 from generation import generation_model
 
 load_dotenv()
@@ -42,10 +43,19 @@ if __name__ == "__main__":
     if node_postprocessors:
         top_k = 20
 
+    hybrid_retriever = build_hybrid_retriever(
+        index=index,
+        dense_top_k=20,
+        sparse_top_k=20,
+        fusion_top_k=top_k,
+    )
+
     # Test the rag
-    rag = index.as_query_engine(llm=generator, 
-                                similarity_top_k=top_k,
-                                node_postprocessors=node_postprocessors)
+    rag = RetrieverQueryEngine.from_args(
+        retriever=hybrid_retriever,
+        llm=generator,
+        node_postprocessors=node_postprocessors,
+    )
 
 
     question = "How many stocks of Apple Inc are free on the market?"
