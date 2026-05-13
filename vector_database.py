@@ -14,6 +14,8 @@ import chromadb
 import hashlib
 import re
 
+from retrieval_filters import RetrievalFilter, infer_retrieval_filter
+
 NEW_EMBED_MODEL = True  # Set to False to use default
 ENHANCED_CHUNKING = True  # Set to False to use simple sentence splitting
 
@@ -21,6 +23,33 @@ _ITEM_PATTERN = re.compile(
     r"(?i)^\s*item\s+\d+[a-z]?\b\.?\s",
     re.MULTILINE,
 )
+
+_SEC_ITEM_INFO = {
+    "PREAMBLE": ("Preamble", "preamble"),
+    "ITEM 1": ("Business", "business"),
+    "ITEM 1A": ("Risk Factors", "risk_factors"),
+    "ITEM 1B": ("Unresolved Staff Comments", "staff_comments"),
+    "ITEM 1C": ("Cybersecurity", "cybersecurity"),
+    "ITEM 2": ("Properties", "properties"),
+    "ITEM 3": ("Legal Proceedings", "legal_proceedings"),
+    "ITEM 4": ("Mine Safety Disclosures", "mine_safety"),
+    "ITEM 5": ("Market for Registrant's Common Equity", "market_equity"),
+    "ITEM 6": ("Reserved", "reserved"),
+    "ITEM 7": ("Management's Discussion and Analysis", "mda"),
+    "ITEM 7A": ("Quantitative and Qualitative Disclosures About Market Risk", "market_risk"),
+    "ITEM 8": ("Financial Statements and Supplementary Data", "financial_statements"),
+    "ITEM 9": ("Changes in and Disagreements with Accountants", "accounting_disagreements"),
+    "ITEM 9A": ("Controls and Procedures", "controls_procedures"),
+    "ITEM 9B": ("Other Information", "other_information"),
+    "ITEM 9C": ("Disclosure Regarding Foreign Jurisdictions", "foreign_jurisdictions"),
+    "ITEM 10": ("Directors, Executive Officers and Corporate Governance", "governance"),
+    "ITEM 11": ("Executive Compensation", "executive_compensation"),
+    "ITEM 12": ("Security Ownership", "security_ownership"),
+    "ITEM 13": ("Certain Relationships and Related Transactions", "related_transactions"),
+    "ITEM 14": ("Principal Accountant Fees and Services", "accountant_fees"),
+    "ITEM 15": ("Exhibits and Financial Statement Schedules", "exhibits"),
+    "ITEM 16": ("Form 10-K Summary", "form_10k_summary"),
+}
 
 
 def _split_by_sec_items(text: str) -> List[str]:
@@ -30,13 +59,102 @@ def _split_by_sec_items(text: str) -> List[str]:
     """
     boundaries = [m.start() for m in _ITEM_PATTERN.finditer(text)]
     if not boundaries:
-        return [text]
+        return [text.strip()] if text.strip() else []
 
     sections = []
+
+    if boundaries[0] > 0:
+        prefix = text[: boundaries[0]].strip()
+        if prefix:
+            sections.append(prefix)
+
     for i, start in enumerate(boundaries):
         end = boundaries[i + 1] if i + 1 < len(boundaries) else len(text)
-        sections.append(text[start:end].strip())
+        section = text[start:end].strip()
+        if section:
+            sections.append(section)
     return sections
+
+
+def _normalize_sec_item(text: str) -> Optional[str]:
+    """Return normalized SEC item labels such as ITEM 7A."""
+    match = re.match(r"(?i)\s*item\s+(\d+[a-z]?)", text)
+    if not match:
+        return None
+    return f"ITEM {match.group(1).upper()}"
+
+
+def _is_probable_table_of_contents(text: str) -> bool:
+    """Avoid letting a contents page poison section propagation."""
+    item_count = len(_ITEM_PATTERN.findall(text))
+    if item_count < 4:
+        return False
+
+    lower = text.lower()
+    toc_markers = ("table of contents", "form 10-k", "page")
+    return any(marker in lower for marker in toc_markers)
+
+
+def _section_metadata(sec_item: str) -> dict:
+    title, group = _SEC_ITEM_INFO.get(sec_item, ("Unknown", "unknown"))
+    return {
+        "sec_item": sec_item,
+        "section_title": title,
+        "section_group": group,
+    }
+
+
+def _document_metadata(base_meta: dict) -> dict:
+    file_name = str(base_meta.get("file_name", "unknown"))
+    lower_file_name = file_name.lower()
+
+    metadata = {
+        "company_name": "Unknown",
+        "ticker": "UNKNOWN",
+        "form_type": "10-K",
+        "fiscal_year": 0,
+        "period_end_date": "unknown",
+        "filing_date": "unknown",
+        "source_file": file_name,
+        "source_page": str(base_meta.get("page_label", "unknown")),
+    }
+
+    if "apple" in lower_file_name and "2024" in lower_file_name:
+        metadata.update(
+            {
+                "company_name": "Apple Inc.",
+                "ticker": "AAPL",
+                "fiscal_year": 2024,
+                "period_end_date": "2024-09-28",
+                "filing_date": "2024-11-01",
+            }
+        )
+
+    return metadata
+
+
+def _infer_statement_type(text: str, sec_item: str) -> str:
+    if sec_item != "ITEM 8":
+        return "not_applicable"
+
+    lower = text.lower()
+
+    if "consolidated statements of operations" in lower:
+        return "income_statement"
+    if "consolidated balance sheets" in lower:
+        return "balance_sheet"
+    if "consolidated statements of cash flows" in lower:
+        return "cash_flow_statement"
+    if "consolidated statements of shareholders" in lower:
+        return "shareholders_equity"
+    if "consolidated statements of comprehensive income" in lower:
+        return "comprehensive_income"
+    if "notes to consolidated financial statements" in lower:
+        return "notes"
+    if "report of independent registered public accounting firm" in lower:
+        return "auditor_report"
+
+    return "financial_statement_unknown"
 
 
 def _is_table_block(text: str) -> bool:
@@ -75,21 +193,60 @@ def parse_10k_nodes(
     )
 
     all_nodes: List[TextNode] = []
+    current_sec_item = "PREAMBLE"
+    current_statement_type = "not_applicable"
+    chunk_index = 0
 
-    for doc in documents:
+    def add_node(node: TextNode, metadata: dict) -> None:
+        nonlocal chunk_index
+        node.metadata = {
+            **(node.metadata or {}),
+            **metadata,
+            "chunk_index": chunk_index,
+        }
+        all_nodes.append(node)
+        chunk_index += 1
+
+    for doc_index, doc in enumerate(documents):
         full_text = doc.get_content()
         base_meta = doc.metadata or {}
+        document_meta = {
+            **base_meta,
+            **_document_metadata(base_meta),
+            "document_index": doc_index,
+        }
+        is_toc_page = _is_probable_table_of_contents(full_text)
 
         sections = _split_by_sec_items(full_text)
 
-        for section in sections:
-            item_match = re.match(r"(?i)(item\s+\d+[a-z]?)", section)
-            item_label = item_match.group(1).upper() if item_match else "PREAMBLE"
+        for section_index, section in enumerate(sections):
+            detected_item = _normalize_sec_item(section)
+
+            if detected_item and not is_toc_page:
+                current_sec_item = detected_item
+                current_statement_type = (
+                    "financial_statement_unknown"
+                    if detected_item == "ITEM 8"
+                    else "not_applicable"
+                )
+
+            item_label = detected_item or current_sec_item
+            statement_type = _infer_statement_type(section, item_label)
+
+            if item_label == "ITEM 8":
+                if statement_type != "financial_statement_unknown":
+                    current_statement_type = statement_type
+                else:
+                    statement_type = current_statement_type
+            else:
+                statement_type = "not_applicable"
 
             section_meta = {
-                **base_meta,
-                "sec_item": item_label,
+                **document_meta,
+                **_section_metadata(item_label),
                 "chunk_type": "narrative",
+                "statement_type": statement_type,
+                "section_index": section_index,
             }
 
             if _is_table_block(section):
@@ -97,13 +254,13 @@ def parse_10k_nodes(
                     text=section,
                     metadata={**section_meta, "chunk_type": "table"},
                 )
-                all_nodes.append(node)
+                add_node(node, {**section_meta, "chunk_type": "table"})
                 continue
 
             token_estimate = len(section.split())
             if token_estimate <= fallback_chunk_size:
                 node = TextNode(text=section, metadata=section_meta)
-                all_nodes.append(node)
+                add_node(node, section_meta)
                 continue
 
             from llama_index.core.schema import Document as LIDocument
@@ -115,9 +272,7 @@ def parse_10k_nodes(
                 sub_nodes = fallback_splitter.get_nodes_from_documents([section_doc])
 
             for node in sub_nodes:
-                node.metadata.setdefault("sec_item", item_label)
-                node.metadata.setdefault("chunk_type", "narrative")
-            all_nodes.extend(sub_nodes)
+                add_node(node, section_meta)
 
     return all_nodes
 
@@ -268,33 +423,31 @@ class DeduplicatingRetriever(BaseRetriever):
         return deduped_results[: self._top_k]
 
 
-def build_hybrid_retriever(
+def _build_static_hybrid_retriever(
     index: VectorStoreIndex,
-    nodes: Optional[List[TextNode]] = None,
-    db_path: str = "./chroma_db",
-    collection_name: str = "rag_collection",
+    nodes: List[TextNode],
     dense_top_k: int = 20,
     sparse_top_k: int = 20,
     fusion_top_k: int = 10,
     dense_weight: float = 0.65,
     sparse_weight: float = 0.35,
+    retrieval_filter: Optional[RetrievalFilter] = None,
 ) -> BaseRetriever:
-    """
-    Build a dense + sparse hybrid retriever over the same Chroma collection.
+    metadata_filters = None
+    sparse_nodes = nodes
 
-    Dense retrieval uses the vector index. Sparse retrieval uses BM25 over the
-    raw TextNodes reconstructed from Chroma, then LlamaIndex fuses the rankings.
-    """
+    if retrieval_filter is not None and not retrieval_filter.is_empty():
+        filtered_nodes = [node for node in nodes if retrieval_filter.matches_node(node)]
+        if filtered_nodes:
+            sparse_nodes = filtered_nodes
+            metadata_filters = retrieval_filter.to_llama_filters()
 
-    if nodes is None:
-        nodes = load_raw_nodes(db_path=db_path, collection_name=collection_name)
-
-    if not nodes:
-        raise ValueError("Cannot build a hybrid retriever without indexed nodes.")
-
-    dense_retriever = index.as_retriever(similarity_top_k=dense_top_k)
+    dense_retriever = index.as_retriever(
+        similarity_top_k=dense_top_k,
+        filters=metadata_filters,
+    )
     sparse_retriever = BM25Retriever.from_defaults(
-        nodes=nodes,
+        nodes=sparse_nodes,
         similarity_top_k=sparse_top_k,
     )
 
@@ -309,6 +462,112 @@ def build_hybrid_retriever(
     )
 
     return DeduplicatingRetriever(fusion_retriever, top_k=fusion_top_k)
+
+
+class QueryDerivedFilterRetriever(BaseRetriever):
+    """Infer metadata filters per query, then run hybrid retrieval on that scope."""
+
+    def __init__(
+        self,
+        index: VectorStoreIndex,
+        nodes: List[TextNode],
+        dense_top_k: int = 20,
+        sparse_top_k: int = 20,
+        fusion_top_k: int = 10,
+        dense_weight: float = 0.65,
+        sparse_weight: float = 0.35,
+        base_filter: Optional[RetrievalFilter] = None,
+    ):
+        super().__init__()
+        self._index = index
+        self._nodes = nodes
+        self._dense_top_k = dense_top_k
+        self._sparse_top_k = sparse_top_k
+        self._fusion_top_k = fusion_top_k
+        self._dense_weight = dense_weight
+        self._sparse_weight = sparse_weight
+        self._base_filter = base_filter
+        self._retriever_cache = {}
+        self.last_filter: Optional[RetrievalFilter] = None
+
+    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+        inferred_filter = infer_retrieval_filter(query_bundle.query_str)
+        active_filter = (
+            self._base_filter.merge(inferred_filter)
+            if self._base_filter is not None
+            else inferred_filter
+        )
+
+        if active_filter.is_empty():
+            active_filter = None
+
+        self.last_filter = active_filter
+        cache_key = active_filter or RetrievalFilter()
+
+        if cache_key not in self._retriever_cache:
+            self._retriever_cache[cache_key] = _build_static_hybrid_retriever(
+                index=self._index,
+                nodes=self._nodes,
+                dense_top_k=self._dense_top_k,
+                sparse_top_k=self._sparse_top_k,
+                fusion_top_k=self._fusion_top_k,
+                dense_weight=self._dense_weight,
+                sparse_weight=self._sparse_weight,
+                retrieval_filter=active_filter,
+            )
+
+        return self._retriever_cache[cache_key].retrieve(query_bundle)
+
+
+def build_hybrid_retriever(
+    index: VectorStoreIndex,
+    nodes: Optional[List[TextNode]] = None,
+    db_path: str = "./chroma_db",
+    collection_name: str = "rag_collection",
+    dense_top_k: int = 20,
+    sparse_top_k: int = 20,
+    fusion_top_k: int = 10,
+    dense_weight: float = 0.65,
+    sparse_weight: float = 0.35,
+    retrieval_filter: Optional[RetrievalFilter] = None,
+    infer_filters_from_query: bool = False,
+) -> BaseRetriever:
+    """
+    Build a dense + sparse hybrid retriever over the same Chroma collection.
+
+    Dense retrieval uses the vector index. Sparse retrieval uses BM25 over the
+    raw TextNodes reconstructed from Chroma, then LlamaIndex fuses the rankings.
+    Query-derived filtering is optional and scopes both dense and sparse sides.
+    """
+
+    if nodes is None:
+        nodes = load_raw_nodes(db_path=db_path, collection_name=collection_name)
+
+    if not nodes:
+        raise ValueError("Cannot build a hybrid retriever without indexed nodes.")
+
+    if infer_filters_from_query:
+        return QueryDerivedFilterRetriever(
+            index=index,
+            nodes=nodes,
+            dense_top_k=dense_top_k,
+            sparse_top_k=sparse_top_k,
+            fusion_top_k=fusion_top_k,
+            dense_weight=dense_weight,
+            sparse_weight=sparse_weight,
+            base_filter=retrieval_filter,
+        )
+
+    return _build_static_hybrid_retriever(
+        index=index,
+        nodes=nodes,
+        dense_top_k=dense_top_k,
+        sparse_top_k=sparse_top_k,
+        fusion_top_k=fusion_top_k,
+        dense_weight=dense_weight,
+        sparse_weight=sparse_weight,
+        retrieval_filter=retrieval_filter,
+    )
 
 
 if __name__ == "__main__":
