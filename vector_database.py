@@ -14,10 +14,8 @@ import chromadb
 import hashlib
 import re
 
+from config import COLLECTION_NAME, DB_PATH, EMBED_MODEL, ENHANCED_CHUNKING
 from retrieval_filters import RetrievalFilter, infer_retrieval_filter
-
-NEW_EMBED_MODEL = True  # Set to False to use default
-ENHANCED_CHUNKING = True  # Set to False to use simple sentence splitting
 
 _ITEM_PATTERN = re.compile(
     r"(?i)^\s*item\s+\d+[a-z]?\b\.?\s",
@@ -279,9 +277,9 @@ def parse_10k_nodes(
 
 def create_vector_db(
     documents=None,
-    embed_model="sentence-transformers/all-MiniLM-L6-v2",
-    db_path="./chroma_db",
-    collection_name="rag_collection",
+    embed_model=EMBED_MODEL,
+    db_path=DB_PATH,
+    collection_name=COLLECTION_NAME,
 ):
     if ENHANCED_CHUNKING:
         print("Using enhanced 10-K chunking strategy.")
@@ -340,9 +338,9 @@ def create_vector_db(
 
 
 def load_vector_db(
-    embed_model="sentence-transformers/all-MiniLM-L6-v2",
-    db_path="./chroma_db",
-    collection_name="rag_collection",
+    embed_model=EMBED_MODEL,
+    db_path=DB_PATH,
+    collection_name=COLLECTION_NAME,
 ) -> VectorStoreIndex:
     """Load an existing Chroma collection into a VectorStoreIndex."""
     chroma_client = chromadb.PersistentClient(path=db_path)
@@ -423,6 +421,32 @@ class DeduplicatingRetriever(BaseRetriever):
         return deduped_results[: self._top_k]
 
 
+class AtLeastOneRetriever(BaseRetriever):
+    """Fallback to an unfiltered retriever if the primary retriever returns no nodes."""
+
+    def __init__(
+        self,
+        retriever: BaseRetriever,
+        fallback_retriever: BaseRetriever,
+        fallback_top_k: int = 1,
+    ):
+        super().__init__()
+        self._retriever = retriever
+        self._fallback_retriever = fallback_retriever
+        self._fallback_top_k = fallback_top_k
+
+    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+        results = self._retriever.retrieve(query_bundle)
+        if results:
+            return results
+
+        return self._fallback_retriever.retrieve(query_bundle)[: self._fallback_top_k]
+
+    @property
+    def last_filter(self):
+        return getattr(self._retriever, "last_filter", None)
+
+
 def _build_static_hybrid_retriever(
     index: VectorStoreIndex,
     nodes: List[TextNode],
@@ -461,7 +485,13 @@ def _build_static_hybrid_retriever(
         retriever_weights=[dense_weight, sparse_weight],
     )
 
-    return DeduplicatingRetriever(fusion_retriever, top_k=fusion_top_k)
+    retriever = DeduplicatingRetriever(fusion_retriever, top_k=fusion_top_k)
+    fallback_retriever = index.as_retriever(similarity_top_k=1)
+
+    return AtLeastOneRetriever(
+        retriever=retriever,
+        fallback_retriever=fallback_retriever,
+    )
 
 
 class QueryDerivedFilterRetriever(BaseRetriever):
@@ -488,6 +518,7 @@ class QueryDerivedFilterRetriever(BaseRetriever):
         self._sparse_weight = sparse_weight
         self._base_filter = base_filter
         self._retriever_cache = {}
+        self._fallback_retriever = index.as_retriever(similarity_top_k=1)
         self.last_filter: Optional[RetrievalFilter] = None
 
     def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
@@ -516,14 +547,93 @@ class QueryDerivedFilterRetriever(BaseRetriever):
                 retrieval_filter=active_filter,
             )
 
-        return self._retriever_cache[cache_key].retrieve(query_bundle)
+        results = self._retriever_cache[cache_key].retrieve(query_bundle)
+        if results:
+            return results
+
+        return self._fallback_retriever.retrieve(query_bundle)[:1]
+
+
+class QueryDerivedDenseFilterRetriever(BaseRetriever):
+    """Infer metadata filters per query, then run dense retrieval on that scope."""
+
+    def __init__(
+        self,
+        index: VectorStoreIndex,
+        similarity_top_k: int = 10,
+        base_filter: Optional[RetrievalFilter] = None,
+    ):
+        super().__init__()
+        self._index = index
+        self._similarity_top_k = similarity_top_k
+        self._base_filter = base_filter
+        self._retriever_cache = {}
+        self._fallback_retriever = index.as_retriever(similarity_top_k=1)
+        self.last_filter: Optional[RetrievalFilter] = None
+
+    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+        inferred_filter = infer_retrieval_filter(query_bundle.query_str)
+        active_filter = (
+            self._base_filter.merge(inferred_filter)
+            if self._base_filter is not None
+            else inferred_filter
+        )
+
+        if active_filter.is_empty():
+            active_filter = None
+
+        self.last_filter = active_filter
+        cache_key = active_filter or RetrievalFilter()
+
+        if cache_key not in self._retriever_cache:
+            self._retriever_cache[cache_key] = self._index.as_retriever(
+                similarity_top_k=self._similarity_top_k,
+                filters=active_filter.to_llama_filters() if active_filter else None,
+            )
+
+        results = self._retriever_cache[cache_key].retrieve(query_bundle)
+        if results:
+            return results
+
+        return self._fallback_retriever.retrieve(query_bundle)[:1]
+
+
+def build_dense_retriever(
+    index: VectorStoreIndex,
+    similarity_top_k: int = 10,
+    retrieval_filter: Optional[RetrievalFilter] = None,
+    infer_filters_from_query: bool = False,
+) -> BaseRetriever:
+    """Build a vector-only retriever, optionally scoped by metadata filters."""
+
+    if infer_filters_from_query:
+        return QueryDerivedDenseFilterRetriever(
+            index=index,
+            similarity_top_k=similarity_top_k,
+            base_filter=retrieval_filter,
+        )
+
+    retriever = index.as_retriever(
+        similarity_top_k=similarity_top_k,
+        filters=(
+            retrieval_filter.to_llama_filters()
+            if retrieval_filter is not None and not retrieval_filter.is_empty()
+            else None
+        ),
+    )
+    fallback_retriever = index.as_retriever(similarity_top_k=1)
+
+    return AtLeastOneRetriever(
+        retriever=retriever,
+        fallback_retriever=fallback_retriever,
+    )
 
 
 def build_hybrid_retriever(
     index: VectorStoreIndex,
     nodes: Optional[List[TextNode]] = None,
-    db_path: str = "./chroma_db",
-    collection_name: str = "rag_collection",
+    db_path: str = DB_PATH,
+    collection_name: str = COLLECTION_NAME,
     dense_top_k: int = 20,
     sparse_top_k: int = 20,
     fusion_top_k: int = 10,
@@ -572,12 +682,10 @@ def build_hybrid_retriever(
 
 if __name__ == "__main__":
     documents = SimpleDirectoryReader("data/", required_exts=[".pdf"]).load_data()
-    if NEW_EMBED_MODEL:
-        create_vector_db(
-            documents=documents,
-            embed_model="BAAI/bge-large-en-v1.5",
-            collection_name="rag_collection_v2",
-        )
-    else:
-        create_vector_db(documents=documents)
+    create_vector_db(
+        documents=documents,
+        embed_model=EMBED_MODEL,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
+    )
     print("Vector DB created.")

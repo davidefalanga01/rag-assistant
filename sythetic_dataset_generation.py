@@ -10,6 +10,7 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 
 from dotenv import load_dotenv
 
+from config import COLLECTION_NAME, DB_PATH
 from generation import generation_model
 from vector_database import load_raw_nodes
 
@@ -39,8 +40,8 @@ def main():
  
     # 1. Load nodes from Chroma
     nodes = load_raw_nodes(
-        db_path="./chroma_db",
-        collection_name="rag_collection",
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
     )
  
     # 2. Generate Q&A pairs

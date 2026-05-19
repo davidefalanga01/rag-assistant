@@ -6,13 +6,12 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 import chromadb
 import os
 
+from config import COLLECTION_NAME, DB_PATH
 from vector_database import create_vector_db, load_raw_nodes, load_vector_db
 
 
 def test_vector_db():
 
-    DB_PATH = "./chroma_db"
-    COLLECTION_NAME = "rag_collection"
     DATA_DIR = "data/"
 
     # --- Test 1: create_vector_db ---
@@ -21,7 +20,11 @@ def test_vector_db():
     assert len(documents) > 0, "No documents loaded."
     print(f"Loaded {len(documents)} documents.")
 
-    index = create_vector_db(documents=documents)
+    index = create_vector_db(
+        documents=documents,
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
+    )
     assert index is not None, "Index was not created."
     print("Index created.")
 
@@ -43,7 +46,10 @@ def test_vector_db():
 
     # --- Test 4: load_vector_db ---
     print("\n=== Test 4: Loading vector DB ===")
-    loaded_index = load_vector_db()
+    loaded_index = load_vector_db(
+        db_path=DB_PATH,
+        collection_name=COLLECTION_NAME,
+    )
     assert loaded_index is not None, "Loaded index is None."
     print("Index loaded successfully. ✓")
 

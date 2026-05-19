@@ -1,8 +1,6 @@
 '''Evaluate the Generation capabilities of the RAG assistant on a set of test queries.'''
 import os
 
-from llama_index.core.query_engine import RetrieverQueryEngine
-from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.evaluation import (
     FaithfulnessEvaluator,
@@ -12,14 +10,12 @@ from llama_index.core.evaluation import (
 )
 
 import json
-from vector_database import build_hybrid_retriever, load_vector_db
+from config import EMBED_MODEL
 from generation import generation_model
 from filter_gt import build_smaller_eval_dataset
+from rag import build_query_engine
 
 SHORT_EVAL = True  # Set to True to run a shorter evaluation with fewer queries
-EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-DB_PATH = "./chroma_db"
-COLLECTION_NAME = "rag_collection"
 
 llm = generation_model()
 llm_gt = generation_model("big") 
@@ -76,22 +72,10 @@ def llm_as_a_judge(query, answer, reference):
 
     return {"llm_judge_score": score, "llm_judge_feedback": feedback}
 
-def run_generation_eval(index, qa_dataset, output_file=None):
+def run_generation_eval(qa_dataset, output_file=None):
     print("Running generation evaluation...")
 
-    # Query engine (RAG pipeline)
-    hybrid_retriever = build_hybrid_retriever(
-        index=index,
-        db_path=DB_PATH,
-        collection_name=COLLECTION_NAME,
-        dense_top_k=20,
-        sparse_top_k=20,
-        fusion_top_k=10,
-    )
-    query_engine = RetrieverQueryEngine.from_args(
-        retriever=hybrid_retriever,
-        llm=llm,
-    )
+    query_engine = build_query_engine(llm=llm)
 
     # Embedding model for semantic similarity evaluation
     embed_model = HuggingFaceEmbedding(model_name=EMBED_MODEL)
@@ -206,13 +190,6 @@ def run_generation_eval(index, qa_dataset, output_file=None):
 
 
 def main():
-    print("Loading vector database...")
-    index = load_vector_db(
-        embed_model=EMBED_MODEL,
-        db_path=DB_PATH,
-        collection_name=COLLECTION_NAME,
-    )
-
     print("Loading cleaned evaluation dataset...")
     with open("data/eval_rag_dataset_with_refs.json", "r") as f:
         qa_dataset = json.load(f)
@@ -222,7 +199,7 @@ def main():
         qa_dataset = build_smaller_eval_dataset(qa_dataset)
 
     print("Evaluating generation...")
-    result = run_generation_eval(index, qa_dataset, output_file="generation_eval_results.json")
+    result = run_generation_eval(qa_dataset, output_file="generation_eval_results.json")
 
     print("Process completed. Summary of results:")
     for key, value in result["summary"].items():

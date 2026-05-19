@@ -1,16 +1,14 @@
 '''Evaluate the Retrieval capabilities of the RAG assistant on a set of test queries.'''
-from llama_index.core.evaluation import RetrieverEvaluator
 from llama_index.core.evaluation import EmbeddingQAFinetuneDataset
 from llama_index.core.schema import MetadataMode
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 
 import numpy as np
 import pandas as pd
-from vector_database import build_hybrid_retriever, load_vector_db
+from config import COLLECTION_NAME, DB_PATH, EMBED_MODEL
+from rag import build_retriever_for_eval
+from vector_database import load_vector_db
 
-EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-DB_PATH = "./chroma_db"
-COLLECTION_NAME = "rag_collection"
 SOFT_SIMILARITY_THRESHOLD = 0.70
 RUN_LLM_JUDGE = False
 LLM_JUDGE_TOP_N = 5
@@ -32,6 +30,66 @@ def get_node_text(node_with_score):
         return node.get_content(metadata_mode=MetadataMode.NONE)
 
     return getattr(node, "text", str(node))
+
+
+def get_node_id(node_with_score):
+    node = getattr(node_with_score, "node", node_with_score)
+    return getattr(node, "node_id", None) or getattr(node, "id_", None)
+
+
+def compute_hard_retrieval_metrics(retrieved_nodes, expected_ids):
+    retrieved_ids = [node_id for node_id in map(get_node_id, retrieved_nodes) if node_id]
+    expected_set = set(expected_ids or [])
+
+    if not retrieved_ids or not expected_set:
+        return {
+            "hit_rate": 0.0,
+            "mrr": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "ap": 0.0,
+            "ndcg": 0.0,
+        }
+
+    seen_relevant_ids = set()
+    hits = []
+    for node_id in retrieved_ids:
+        is_new_relevant = node_id in expected_set and node_id not in seen_relevant_ids
+        hits.append(1 if is_new_relevant else 0)
+        if is_new_relevant:
+            seen_relevant_ids.add(node_id)
+    hit_count = sum(hits)
+
+    mrr = 0.0
+    for rank, hit in enumerate(hits, start=1):
+        if hit:
+            mrr = 1.0 / rank
+            break
+
+    precision = hit_count / len(retrieved_ids)
+    recall = hit_count / len(expected_set)
+
+    precision_sum = 0.0
+    relevant_seen = 0
+    for rank, hit in enumerate(hits, start=1):
+        if hit:
+            relevant_seen += 1
+            precision_sum += relevant_seen / rank
+    ap = precision_sum / min(len(expected_set), len(retrieved_ids))
+
+    dcg = sum(hit / np.log2(rank + 1) for rank, hit in enumerate(hits, start=1))
+    ideal_hits = [1] * min(len(expected_set), len(retrieved_ids))
+    idcg = sum(hit / np.log2(rank + 1) for rank, hit in enumerate(ideal_hits, start=1))
+    ndcg = dcg / idcg if idcg else 0.0
+
+    return {
+        "hit_rate": float(hit_count > 0),
+        "mrr": float(mrr),
+        "precision": float(precision),
+        "recall": float(recall),
+        "ap": float(ap),
+        "ndcg": float(ndcg),
+    }
 
 
 def get_cached_embedding(text, embed_model, embedding_cache):
@@ -167,30 +225,14 @@ FEEDBACK: <short explanation>
 
 
 def evaluate_retriever_variant(
-    index,
+    retriever,
     qa_dataset,
     variant_name,
     hard_metrics,
     embed_model,
     embedding_cache,
-    similarity_top_k=10,
-    infer_filters_from_query=False,
     llm_judge=None,
 ):
-    retriever = build_hybrid_retriever(
-        index=index,
-        db_path=DB_PATH,
-        collection_name=COLLECTION_NAME,
-        dense_top_k=20,
-        sparse_top_k=20,
-        fusion_top_k=similarity_top_k,
-        infer_filters_from_query=infer_filters_from_query,
-    )
-    retriever_evaluator = RetrieverEvaluator.from_metric_names(
-        metric_names=hard_metrics,
-        retriever=retriever,
-    )
- 
     results = []
     for query_id, query in qa_dataset.queries.items():
         # The expected node IDs for this question
@@ -201,11 +243,11 @@ def evaluate_retriever_variant(
             if doc_id in qa_dataset.corpus
         ]
 
-        eval_result = retriever_evaluator.evaluate(
-            query=query,
+        retrieved_nodes = retriever.retrieve(query)
+        hard_metric_values = compute_hard_retrieval_metrics(
+            retrieved_nodes=retrieved_nodes,
             expected_ids=expected_ids,
         )
-        retrieved_nodes = retriever.retrieve(query)
         soft_metrics = compute_soft_retrieval_metrics(
             retrieved_nodes=retrieved_nodes,
             reference_texts=reference_texts,
@@ -213,14 +255,15 @@ def evaluate_retriever_variant(
             embedding_cache=embedding_cache,
         )
         
-        print(eval_result)
+        print(f"Query: {query}")
+        print(f"Metrics: {hard_metric_values}")
         row = {
             "retriever": variant_name,
             "query_id": query_id,
             "query": query,
             **{
                 f"hard_{metric_name}": metric_value
-                for metric_name, metric_value in eval_result.metric_vals_dict.items()
+                for metric_name, metric_value in hard_metric_values.items()
             },
             **soft_metrics,
         }
@@ -259,11 +302,6 @@ def run_retrieval_eval(index, qa_dataset, similarity_top_k=10):
         "soft_covered_reference_count",
     ]
     summary_metrics = [f"hard_{metric}" for metric in hard_metrics] + soft_metrics
-    variants = [
-        ("hybrid_no_filter", False),
-        ("hybrid_query_filters", True),
-    ]
-
     embed_model = HuggingFaceEmbedding(model_name=EMBED_MODEL)
     embedding_cache = {}
     llm_judge = None
@@ -274,22 +312,16 @@ def run_retrieval_eval(index, qa_dataset, similarity_top_k=10):
         llm_judge = generation_model("judge")
         summary_metrics.extend(["llm_retrieval_score", "llm_retrieval_hit"])
 
-    all_results = []
-    for variant_name, infer_filters_from_query in variants:
-        print(f"\nEvaluating variant: {variant_name}")
-        all_results.extend(
-            evaluate_retriever_variant(
-                index=index,
-                qa_dataset=qa_dataset,
-                variant_name=variant_name,
-                hard_metrics=hard_metrics,
-                embed_model=embed_model,
-                embedding_cache=embedding_cache,
-                similarity_top_k=similarity_top_k,
-                infer_filters_from_query=infer_filters_from_query,
-                llm_judge=llm_judge,
-            )
-        )
+    retriever = build_retriever_for_eval(index)
+    all_results = evaluate_retriever_variant(
+        retriever=retriever,
+        qa_dataset=qa_dataset,
+        variant_name="configured_rag",
+        hard_metrics=hard_metrics,
+        embed_model=embed_model,
+        embedding_cache=embedding_cache,
+        llm_judge=llm_judge,
+    )
 
     full_df = pd.DataFrame(all_results)
 
