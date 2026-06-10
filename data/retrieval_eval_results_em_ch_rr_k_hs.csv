@@ -1,0 +1,2 @@
+retriever,hard_hit_rate,hard_mrr,hard_precision,hard_recall,hard_ap,hard_ndcg,soft_hit_rate,soft_precision,soft_recall,soft_mrr,soft_avg_retrieved_max_similarity,soft_avg_reference_max_similarity,soft_relevant_retrieved_count,soft_covered_reference_count
+configured_rag,0.16597510373443983,0.15491009681881052,0.12040110650069157,0.16597510373443983,0.15491009681881052,0.15777476769413207,0.9253112033195021,0.8840248962655602,0.9253112033195021,0.91701244813278,0.8458975388692487,0.8800358096666723,1.7427385892116183,0.9253112033195021

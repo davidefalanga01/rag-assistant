@@ -78,7 +78,7 @@ SIMILARITY_CUTOFF=0.60
 ### Esempi `.env`
 
 RAG naive:
-NEW_EMBED_MODEL=True
+NEW_EMBED_MODEL=False
 ENHANCED_CHUNKING=False
 USE_RERANKER=False
 USE_ADAPTIVE_K=False
@@ -93,7 +93,7 @@ USE_RERANKER=True
 USE_ADAPTIVE_K=True
 USE_METADATA_FILTERING=False
 USE_HYBRID_SEARCH=False
-COLLECTION_NAME=rag_collection
+COLLECTION_NAME=rag_collection_v1
 
 RAG reranker + adaptive-k + metadata + chunking:
 NEW_EMBED_MODEL=True

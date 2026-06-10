@@ -1,0 +1,2 @@
+total_queries,faithfulness_avg_score,faithfulness_pass_rate,relevancy_avg_score,relevancy_pass_rate,correctness_avg_score,correctness_pass_rate,llm_judge_avg_score,semantic_similarity_avg_score,semantic_similarity_pass_rate
+15,0.8666666666666667,0.8666666666666667,0.8666666666666667,0.8666666666666667,3.533333333333333,0.5333333333333333,3.8,0.7824956416199862,0.6

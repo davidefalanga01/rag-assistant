@@ -1,32 +1,67 @@
 '''Evaluate the Generation capabilities of the RAG assistant on a set of test queries.'''
-import os
+import json
+from pathlib import Path
 
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+import pandas as pd
 from llama_index.core.evaluation import (
+    CorrectnessEvaluator,
     FaithfulnessEvaluator,
     RelevancyEvaluator,
-    CorrectnessEvaluator,
     SemanticSimilarityEvaluator,
 )
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 
-import json
 from config import EMBED_MODEL
-from generation import generation_model
 from filter_gt import build_smaller_eval_dataset
+from generation import generation_model
 from rag import build_query_engine
 
 SHORT_EVAL = True  # Set to True to run a shorter evaluation with fewer queries
+DEFAULT_OUTPUT_FILE = "data/generation_eval_results.csv"
 
 llm = generation_model()
-llm_gt = generation_model("big") 
+llm_gt = generation_model("big")
 llm_judge = generation_model("judge")
+
+
+def metric_value(value):
+    if value is None:
+        return None
+
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        pass
+
+    if isinstance(value, bool):
+        return float(value)
+
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized in {"", "none", "nan"}:
+            return None
+        if normalized in {"true", "yes", "y"}:
+            return 1.0
+        if normalized in {"false", "no", "n"}:
+            return 0.0
+
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
 
 def compute_summary(results):
     if not results:
         return {}
-        
+
     def avg(key):
-        values = [r[key] for r in results if r.get(key) is not None]
+        values = [
+            value
+            for value in (metric_value(result.get(key)) for result in results)
+            if value is not None
+        ]
         return sum(values) / len(values) if values else None
 
     return {
@@ -39,8 +74,84 @@ def compute_summary(results):
         "correctness_pass_rate": avg("correctness_passing"),
         "llm_judge_avg_score": avg("llm_judge_score"),
         "semantic_similarity_avg_score": avg("semantic_similarity_score"),
-        "semantic_similarity_pass_rate": avg("semantic_similarity_feedback"),
+        "semantic_similarity_pass_rate": avg("semantic_similarity_passing"),
     }
+
+
+def resolve_output_files(output_file=None):
+    summary_file = Path(output_file or DEFAULT_OUTPUT_FILE)
+
+    if summary_file.suffix.lower() == ".json":
+        legacy_json_file = summary_file
+        summary_file = summary_file.with_suffix(".csv")
+    else:
+        legacy_json_file = summary_file.with_suffix(".json")
+        if summary_file.suffix.lower() != ".csv":
+            summary_file = summary_file.with_suffix(".csv")
+
+    per_query_file = summary_file.with_name(
+        f"{summary_file.stem}_per_query{summary_file.suffix}"
+    )
+
+    return summary_file, per_query_file, legacy_json_file
+
+
+def normalize_loaded_result(row):
+    result = {}
+    for key, value in row.items():
+        try:
+            is_missing = pd.isna(value)
+        except (TypeError, ValueError):
+            is_missing = False
+        result[key] = None if is_missing else value
+
+    # Backward compatibility with the previous JSON format, where this field
+    # contained the boolean pass/fail value despite the "feedback" suffix.
+    if "semantic_similarity_passing" not in result:
+        semantic_feedback = result.get("semantic_similarity_feedback")
+        semantic_passing = metric_value(semantic_feedback)
+        if semantic_passing is not None and semantic_passing in {0.0, 1.0}:
+            result["semantic_similarity_passing"] = bool(semantic_passing)
+            result["semantic_similarity_feedback"] = None
+
+    return result
+
+
+def load_previous_results(per_query_file, legacy_json_file):
+    if per_query_file.exists():
+        print(f"Trovato file '{per_query_file}'. Ripristino sessione precedente...")
+        saved_df = pd.read_csv(per_query_file)
+        return [
+            normalize_loaded_result(row)
+            for row in saved_df.to_dict(orient="records")
+        ]
+
+    if legacy_json_file.exists():
+        print(f"Trovato file legacy '{legacy_json_file}'. Ripristino sessione precedente...")
+        with open(legacy_json_file, "r") as f:
+            saved_data = json.load(f)
+        return [
+            normalize_loaded_result(row)
+            for row in saved_data.get("results", [])
+        ]
+
+    return []
+
+
+def save_generation_results(results, summary_file, per_query_file):
+    summary = compute_summary(results)
+
+    summary_file.parent.mkdir(parents=True, exist_ok=True)
+    per_query_file.parent.mkdir(parents=True, exist_ok=True)
+
+    metric_df = pd.DataFrame([summary])
+    full_df = pd.DataFrame(results)
+
+    metric_df.to_csv(summary_file, index=False)
+    full_df.to_csv(per_query_file, index=False)
+
+    return {"results": results, "summary": summary}
+
 
 def llm_as_a_judge(query, answer, reference):
     prompt = f"""
@@ -72,8 +183,10 @@ def llm_as_a_judge(query, answer, reference):
 
     return {"llm_judge_score": score, "llm_judge_feedback": feedback}
 
+
 def run_generation_eval(qa_dataset, output_file=None):
     print("Running generation evaluation...")
+    summary_file, per_query_file, legacy_json_file = resolve_output_files(output_file)
 
     query_engine = build_query_engine(llm=llm)
 
@@ -84,23 +197,19 @@ def run_generation_eval(qa_dataset, output_file=None):
     faithfulness_evaluator = FaithfulnessEvaluator(llm=llm_gt)
     relevancy_evaluator = RelevancyEvaluator(llm=llm_gt)
     correctness_evaluator = CorrectnessEvaluator(llm=llm_gt)
-    semanticsimilarity_evaluator = SemanticSimilarityEvaluator(embed_model=embed_model)
+    semantic_similarity_evaluator = SemanticSimilarityEvaluator(embed_model=embed_model)
 
     results = []
     processed_queries = set()
 
     # Load previous results if available to allow resuming
-    if os.path.exists(output_file):
-        print(f"Trovato file '{output_file}'. Ripristino sessione precedente...")
-        try:
-            with open(output_file, "r") as f:
-                saved_data = json.load(f)
-                results = saved_data.get("results", [])
-                
-                processed_queries = {r["query"] for r in results}
-                print(f"Resumed {len(processed_queries)} query già valutate.")
-        except json.JSONDecodeError:
-            print("Il file esistente è corrotto. Inizio da zero.")
+    try:
+        results = load_previous_results(per_query_file, legacy_json_file)
+        processed_queries = {result["query"] for result in results if result.get("query")}
+        if processed_queries:
+            print(f"Resumed {len(processed_queries)} query gia valutate.")
+    except (json.JSONDecodeError, pd.errors.ParserError):
+        print("Il file esistente e corrotto. Inizio da zero.")
 
     for query_id, query in qa_dataset["queries"].items():
         if query in processed_queries:
@@ -124,7 +233,7 @@ def run_generation_eval(qa_dataset, output_file=None):
             )
 
             relevancy = relevancy_evaluator.evaluate_response(
-                query=query,  
+                query=query,
                 response=response,
             )
 
@@ -139,13 +248,16 @@ def run_generation_eval(qa_dataset, output_file=None):
             llm_judge_result = llm_as_a_judge(query, generated_answer, reference_answer)
             print(f"LLM Judge Result: {llm_judge_result}")
 
-            semantic_similarity = semanticsimilarity_evaluator.evaluate(
+            semantic_similarity = semantic_similarity_evaluator.evaluate(
                 response=generated_answer,
                 reference=reference_answer,
             )
 
             result = {
+                "query_id": query_id,
                 "query": query,
+                "generated_answer": generated_answer,
+                "reference_answer": reference_answer,
                 "faithfulness_passing": faithfulness.passing,
                 "faithfulness_score": faithfulness.score,
                 "faithfulness_feedback": faithfulness.feedback,
@@ -158,33 +270,27 @@ def run_generation_eval(qa_dataset, output_file=None):
                 "llm_judge_score": llm_judge_result.get("llm_judge_score"),
                 "llm_judge_feedback": llm_judge_result.get("llm_judge_feedback"),
                 "semantic_similarity_score": semantic_similarity.score,
-                "semantic_similarity_feedback": semantic_similarity.passing,
+                "semantic_similarity_passing": semantic_similarity.passing,
+                "semantic_similarity_feedback": semantic_similarity.feedback,
             }
 
             results.append(result)
+            save_generation_results(results, summary_file, per_query_file)
 
         except Exception as e:
             print(f"\n[ERRORE] Esecuzione interrotta sulla query: '{query}'.")
             print(f"Motivo: {e}")
-            print("Salvataggio dei risultati parziali in corso per permettere il riavvio domani...")
-            
-            # Calcola il summary parziale e salva
-            partial_summary = compute_summary(results)
-            with open(output_file, "w") as f:
-                json.dump({"results": results, "summary": partial_summary}, f, indent=2)
-                
-            print(f"Salvataggio completato in {output_file}. Uscita in corso.")
-            
-            # Restituisce i parziali in modo che il blocco `main()` funzioni senza crashare
-            return {"results": results, "summary": partial_summary}
-    
-    # Se il ciclo finisce regolarmente su tutte le domande
+            print("Salvataggio dei risultati parziali in corso...")
+
+            partial_data = save_generation_results(results, summary_file, per_query_file)
+
+            print(f"Salvataggio completato in {summary_file} e {per_query_file}.")
+            return partial_data
+
     print("\nTutte le query completate con successo!")
-    final_summary = compute_summary(results)
-    final_data = {"results": results, "summary": final_summary}
-    
-    with open(output_file, "w") as f:
-        json.dump(final_data, f, indent=2)
+    final_data = save_generation_results(results, summary_file, per_query_file)
+    print(f"Risultati complessivi salvati in {summary_file}.")
+    print(f"Risultati per query salvati in {per_query_file}.")
 
     return final_data
 
@@ -199,7 +305,7 @@ def main():
         qa_dataset = build_smaller_eval_dataset(qa_dataset)
 
     print("Evaluating generation...")
-    result = run_generation_eval(qa_dataset, output_file="generation_eval_results.json")
+    result = run_generation_eval(qa_dataset, output_file=DEFAULT_OUTPUT_FILE)
 
     print("Process completed. Summary of results:")
     for key, value in result["summary"].items():
@@ -208,9 +314,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
