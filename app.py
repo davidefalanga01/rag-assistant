@@ -1,4 +1,28 @@
+import os
+import sys
+
 import streamlit as st
+from streamlit.runtime.scriptrunner_utils.script_run_context import get_script_run_ctx
+
+
+def _rerun_with_streamlit_if_needed() -> None:
+    if __name__ != "__main__" or get_script_run_ctx() is not None:
+        return
+
+    os.execv(
+        sys.executable,
+        [
+            sys.executable,
+            "-m",
+            "streamlit",
+            "run",
+            os.path.abspath(__file__),
+            *sys.argv[1:],
+        ],
+    )
+
+
+_rerun_with_streamlit_if_needed()
 
 from config import (
     COLLECTION_NAME,

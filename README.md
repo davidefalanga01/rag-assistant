@@ -18,6 +18,15 @@ Evaluated with a synthetic dataset:
 
 UI Added with Streamlit
 
+Run the UI from this folder with:
+
+```bash
+streamlit run app.py
+```
+
+`python app.py` also redirects to Streamlit, but using `streamlit run` is the
+native command and avoids Streamlit's bare-mode warnings.
+
 Average Metrics Retrieval:
     retrievers  hit_rate       mrr  precision    recall        ap      ndcg
 0  top-10 eval  0.950207  0.705088   0.095021  0.950207  0.705088  0.765139
@@ -112,4 +121,3 @@ USE_ADAPTIVE_K=True
 USE_METADATA_FILTERING=True
 USE_HYBRID_SEARCH=True
 COLLECTION_NAME=rag_collection_v2
-
