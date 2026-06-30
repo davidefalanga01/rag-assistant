@@ -1,5 +1,4 @@
 from llama_index.llms.groq import Groq
-from llama_index.llms.ollama import Ollama
 from dotenv import load_dotenv
 import os
 import time
